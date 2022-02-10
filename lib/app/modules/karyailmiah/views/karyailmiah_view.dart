@@ -95,7 +95,7 @@ class KaryailmiahView extends GetView<KaryailmiahController> {
                     ListTile(
                       leading: Image.asset('assets/file.png'),
                       title: Text('Implementasi dan Analisis Optimasi Bandwidth dengan Queue Tree Menggunakan Algoritma HTB'),
-                      subtitle: Text('Ilham Kurniawan | T : 2099 | Skripsi Thesis | Universitas Jenderal Soedirman'),
+                      subtitle: Text('Ilham Surya | T : 2099 | Skripsi Thesis | Universitas Jenderal Soedirman'),
                       onTap: (){},
                     ),
                   ],
