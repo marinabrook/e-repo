@@ -15,7 +15,7 @@ class HomeView extends GetView<HomeController> {
         actions: [
           IconButton(
               onPressed: () {
-                Get.toNamed(Routes.KARYAILMIAH);
+                Get.toNamed(Routes.LISTKARYAILMIAH);
               },
               icon: Icon(Icons.search_outlined))
         ],

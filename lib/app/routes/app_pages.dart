@@ -8,6 +8,8 @@ import 'package:repository_mobile_unsoed/app/modules/home/bindings/home_binding.
 import 'package:repository_mobile_unsoed/app/modules/home/views/home_view.dart';
 import 'package:repository_mobile_unsoed/app/modules/karyailmiah/bindings/karyailmiah_binding.dart';
 import 'package:repository_mobile_unsoed/app/modules/karyailmiah/views/karyailmiah_view.dart';
+import 'package:repository_mobile_unsoed/app/modules/listkaryailmiah/bindings/listkaryailmiah_binding.dart';
+import 'package:repository_mobile_unsoed/app/modules/listkaryailmiah/views/listkaryailmiah_view.dart';
 import 'package:repository_mobile_unsoed/app/modules/petunjuk/bindings/petunjuk_binding.dart';
 import 'package:repository_mobile_unsoed/app/modules/petunjuk/views/petunjuk_view.dart';
 
@@ -43,6 +45,11 @@ class AppPages {
       name: _Paths.KARYAILMIAH,
       page: () => KaryailmiahView(),
       binding: KaryailmiahBinding(),
+    ),
+    GetPage(
+      name: _Paths.LISTKARYAILMIAH,
+      page: () => ListkaryailmiahView(),
+      binding: ListkaryailmiahBinding(),
     ),
   ];
 }

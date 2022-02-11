@@ -9,6 +9,7 @@ abstract class Routes {
   static const ABOUT = _Paths.ABOUT;
   static const PETUNJUK = _Paths.PETUNJUK;
   static const KARYAILMIAH = _Paths.KARYAILMIAH;
+  static const LISTKARYAILMIAH = _Paths.LISTKARYAILMIAH;
 }
 
 abstract class _Paths {
@@ -17,4 +18,5 @@ abstract class _Paths {
   static const ABOUT = '/about';
   static const PETUNJUK = '/petunjuk';
   static const KARYAILMIAH = '/karyailmiah';
+  static const LISTKARYAILMIAH = '/listkaryailmiah';
 }
