@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:repository_mobile_unsoed/app/modules/listkaryailmiah/controllers/listkaryailmiah_controller.dart';
 import 'package:repository_mobile_unsoed/app/modules/models/userM.dart';
 import 'package:repository_mobile_unsoed/app/routes/app_pages.dart';
 
@@ -15,7 +16,8 @@ class HomeView extends GetView<HomeController> {
         actions: [
           IconButton(
               onPressed: () {
-                Get.toNamed(Routes.LISTKARYAILMIAH);
+                // Get.toNamed(Routes.LISTKARYAILMIAH);
+                ListkaryailmiahController().testKaryadata();
               },
               icon: Icon(Icons.search_outlined))
         ],

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:repository_mobile_unsoed/app/routes/app_pages.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../controllers/karyailmiah_controller.dart';
 
@@ -154,19 +155,40 @@ class KaryailmiahView extends GetView<KaryailmiahController> {
             leading: Icon(Icons.picture_as_pdf),
             title: Text('PDF (Cover)'),
             subtitle: Text('COVER-Ilham-C2A017008-TESIS-2019-PDF.pdf'),
-            onTap: () {},
+            onTap: () async {
+              String link = "https://repository.unsoed.ac.id/14223/21/COVER-Falih Abdurrahman-F1B017070-Skripsi-2022.pdf";
+              if (await canLaunch(link)) {
+                await launch(link);
+              } else {
+                throw 'Could not launch $link';
+              }
+            },
           ),
           ListTile(
             leading: Icon(Icons.picture_as_pdf),
-            title: Text('PDF Legalitas)'),
+            title: Text('PDF (Legalitas)'),
             subtitle: Text('LEGALITAS-Ilham-C2A017008-TESIS-2019-PDF.pdf'),
-            onTap: () {},
+            onTap: () async {
+              String link = "";
+              if (await canLaunch(link)) {
+                await launch(link);
+              } else {
+                throw 'Could not launch $link';
+              }
+            },
           ),
           ListTile(
             leading: Icon(Icons.picture_as_pdf),
             title: Text('PDF (Abstrak)'),
             subtitle: Text('Abstrak-Ilham-C2A017008-TESIS-2019-PDF.pdf'),
-            onTap: () {},
+            onTap: () async {
+              String link = "";
+              if (await canLaunch(link)) {
+                await launch(link);
+              } else {
+                throw 'Could not launch $link';
+              }
+            },
           ),
           ListTile(
             leading: Icon(Icons.picture_as_pdf),
@@ -251,7 +273,7 @@ class KaryailmiahView extends GetView<KaryailmiahController> {
               ),
             ],
           ),
-           Row(
+          Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -270,7 +292,7 @@ class KaryailmiahView extends GetView<KaryailmiahController> {
               ),
             ],
           ),
-           Row(
+          Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -289,7 +311,7 @@ class KaryailmiahView extends GetView<KaryailmiahController> {
               ),
             ],
           ),
-           Row(
+          Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -308,7 +330,7 @@ class KaryailmiahView extends GetView<KaryailmiahController> {
               ),
             ],
           ),
-           Row(
+          Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -327,7 +349,7 @@ class KaryailmiahView extends GetView<KaryailmiahController> {
               ),
             ],
           ),
-           Row(
+          Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -346,7 +368,7 @@ class KaryailmiahView extends GetView<KaryailmiahController> {
               ),
             ],
           ),
-           Row(
+          Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -365,7 +387,7 @@ class KaryailmiahView extends GetView<KaryailmiahController> {
               ),
             ],
           ),
-           Row(
+          Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:repository_mobile_unsoed/app/modules/models/karyailmiahM.dart';
 import 'package:repository_mobile_unsoed/app/routes/app_pages.dart';
 
 import '../controllers/listkaryailmiah_controller.dart';
@@ -77,31 +78,45 @@ class ListkaryailmiahView extends GetView<ListkaryailmiahController> {
             margin: EdgeInsets.only(left: 4),
             child: Text(
               'root > path directory',
-              style: TextStyle(fontSize: 16,),
+              style: TextStyle(
+                fontSize: 16,
+              ),
             ),
           ),
           SizedBox(
             height: 16,
           ),
           Container(
-            height: MediaQuery.of(context).size.height*0.84,
-            child: ListView.builder(
-              scrollDirection: Axis.vertical,
-              itemCount: 20,
-              itemBuilder: (context, index) {
-                return Column(
-                  children: [
-                    Divider(),
-                    ListTile(
-                      leading: Image.asset('assets/file.png'),
-                      title: Text('Implementasi dan Analisis Optimasi Bandwidth dengan Queue Tree Menggunakan Algoritma HTB'),
-                      subtitle: Text('Ilham Surya | T : 2099 | Skripsi Thesis | Universitas Jenderal Soedirman'),
-                      onTap: (){
-                        Get.toNamed(Routes.KARYAILMIAH);
-                      },
-                    ),
-                  ],
-                );
+            height: MediaQuery.of(context).size.height * 0.84,
+            child: FutureBuilder<List<Karyailmiah>>(
+              future: ListkaryailmiahController().getKaryadata(),
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.done) {
+                  return Center();
+                  // return ListView.builder(
+                  //   scrollDirection: Axis.vertical,
+                  //   itemCount: snapshot.data!.length,
+                  //   itemBuilder: (context, index) {
+                  //     var karya = snapshot.data![index];
+                  //     return Column(
+                  //       children: [
+                  //         Divider(),
+                  //         ListTile(
+                  //           leading: Image.asset('assets/file.png'),
+                  //           title: Text(karya.title),
+                  //           subtitle: Text(
+                  //               '${karya.creators[0].name.given} ${karya.creators[0].name.family} | ${karya.date} | ${karya.thesisType}  ${karya.type} | Universitas Jenderal Soedirman'),
+                  //           onTap: () {
+                  //             Get.toNamed(Routes.KARYAILMIAH);
+                  //           },
+                  //         ),
+                  //       ],
+                  //     );
+                  //   },
+                  // );
+                } else {
+                  return Center(child: CircularProgressIndicator());
+                }
               },
             ),
           ),
