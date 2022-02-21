@@ -2,7 +2,7 @@ import 'package:get/get.dart';
 import 'dart:convert';
 
 class KaryaProvider extends GetConnect {
-  final url = 'https://repository.unsoed.ac.id/cgi/exportview/year/2015/JSON/2015.js';
+  final url = 'https://repository.unsoed.ac.id/cgi/exportview/year/2022/JSON/2022.js';
   // Get request
   Future<Response> getKarya() async{
     httpClient.timeout = Duration(minutes: 2);
