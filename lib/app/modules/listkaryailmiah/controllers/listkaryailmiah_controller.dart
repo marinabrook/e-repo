@@ -4,7 +4,7 @@ import 'package:repository_mobile_unsoed/app/modules/models/karyailmiahM.dart';
 import 'package:repository_mobile_unsoed/app/providers/karyailmiahP.dart';
 
 class ListkaryailmiahController extends GetxController {
-  //TODO: Implement ListkaryailmiahController
+  
 
 
 
@@ -12,6 +12,7 @@ class ListkaryailmiahController extends GetxController {
     var getkarya;
     await KaryaProvider().getKarya().then((value) {
     });
+    
     return getkarya;
   }
 
@@ -19,7 +20,9 @@ class ListkaryailmiahController extends GetxController {
     
     await KaryaProvider().getKarya().then((value) {
       print(value.body);
-      
+
+     
+      final karil = karyailmiahFromJson(value.body);
     });
     
     

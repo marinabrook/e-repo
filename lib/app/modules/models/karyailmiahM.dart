@@ -123,18 +123,18 @@ class Karyailmiah {
         "uri": uri,
         "full_text_status": fullTextStatus,
         "date": date,
-        "keywords": keywords == null ? null : keywords,
+        "keywords": keywords,
         "datestamp": datestamp.toIso8601String(),
         "userid": userid,
         "institution": institution,
         "date_type": dateType,
         "contributors": List<dynamic>.from(contributors.map((x) => x.toJson())),
         "title": title,
-        "pages": pages == null ? null : pages,
+        "pages": pages,
         "documents": List<dynamic>.from(documents.map((x) => x.toJson())),
         "type": type,
-        "divisions": divisions == null ? null : List<dynamic>.from(divisions.map((x) => x)),
-        "contact_email": contactEmail == null ? null : contactEmail,
+        "divisions": List<dynamic>.from(divisions.map((x) => x)),
+        "contact_email": contactEmail,
         "eprint_status": eprintStatus,
         "status_changed": statusChanged.toIso8601String(),
         "department": department,
@@ -146,9 +146,9 @@ class Karyailmiah {
         "metadata_visibility": metadataVisibility,
         "rev_number": revNumber,
         "creators": List<dynamic>.from(creators.map((x) => x.toJson())),
-        "succeeds": succeeds == null ? null : succeeds,
-        "publication": publication == null ? null : publication,
-        "refereed": refereed == null ? null : refereed,
+        "succeeds": succeeds,
+        "publication": publication,
+        "refereed": refereed,
     };
 }
 
@@ -281,10 +281,10 @@ class Document {
         "eprintid": eprintid,
         "docid": docid,
         "pos": pos,
-        "formatdesc": formatdesc == null ? null : formatdesc,
+        "formatdesc": formatdesc,
         "rev_number": revNumber,
         "placement": placement,
-        "content": content == null ? null : content,
+        "content": content,
     };
 }
 

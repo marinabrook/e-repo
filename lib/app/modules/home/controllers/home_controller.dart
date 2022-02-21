@@ -4,7 +4,7 @@ import 'package:repository_mobile_unsoed/app/modules/models/userM.dart';
 import 'package:repository_mobile_unsoed/app/providers/userP.dart';
 
 class HomeController extends GetxController {
-  //TODO: Implement HomeController
+  
   var users;
 
   void adduser(String name, String pekerjaan) {
