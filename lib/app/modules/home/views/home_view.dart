@@ -276,7 +276,7 @@ class HomeView extends GetView<HomeController> {
             child: FutureBuilder<List<Datum?>>(
                 future: HomeController().getUserdata(),
                 builder: (context, snapshot) {
-                  if (snapshot.connectionState == ConnectionState.done) {
+                  if (snapshot.connectionState == ConnectionState.done && snapshot.data != null) {
                     return ListView.builder(
                       scrollDirection: Axis.horizontal,
                       itemCount: snapshot.data!.length,

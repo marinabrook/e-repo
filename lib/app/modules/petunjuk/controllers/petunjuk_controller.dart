@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 
 class PetunjukController extends GetxController {
-  //TODO: Implement PetunjukController
+  
 
   final count = 0.obs;
   @override

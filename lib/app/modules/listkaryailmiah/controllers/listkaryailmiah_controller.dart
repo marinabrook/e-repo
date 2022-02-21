@@ -1,10 +1,9 @@
 import 'package:get/get.dart';
-import 'package:http/http.dart';
 import 'package:repository_mobile_unsoed/app/modules/models/karyailmiahM.dart';
-import 'package:repository_mobile_unsoed/app/providers/karyailmiahP.dart';
+import 'package:repository_mobile_unsoed/app/providers/karya_provider.dart';
 
 class ListkaryailmiahController extends GetxController {
-  //TODO: Implement ListkaryailmiahController
+  
 
 
 
@@ -16,10 +15,12 @@ class ListkaryailmiahController extends GetxController {
   }
 
   void testKaryadata() async {
-    
-    await KaryaProvider().getKarya().then((value) {
-      print(value.body);
+    await KaryaProvider().getKarya().then((value){
       
+      print(value.statusCode);
+      print(value.body);
+      // final karyailmiah = karyailmiahFromJson(value.body);
+      // print(karyailmiah.length);
     });
     
     
@@ -30,7 +31,6 @@ class ListkaryailmiahController extends GetxController {
   final count = 0.obs;
   @override
   void onInit() {
-    getKaryadata();
     super.onInit();
   }
 

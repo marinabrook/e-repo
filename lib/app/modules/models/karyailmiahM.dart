@@ -2,6 +2,8 @@
 //
 //     final karyailmiah = karyailmiahFromJson(jsonString);
 
+// ignore_for_file: unnecessary_null_comparison
+
 import 'dart:convert';
 
 List<Karyailmiah> karyailmiahFromJson(String str) => List<Karyailmiah>.from(json.decode(str).map((x) => Karyailmiah.fromJson(x)));
