@@ -236,7 +236,7 @@ class KaryailmiahView extends GetView<KaryailmiahController> {
             height: 12,
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
@@ -246,16 +246,18 @@ class KaryailmiahView extends GetView<KaryailmiahController> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              Text(
-                "Skripsi Thesis",
-                style: TextStyle(
-                  fontSize: 16,
+              Flexible(
+                child: Text(
+                  "Skripsi Thesis",
+                  style: TextStyle(
+                    fontSize: 16,
+                  ),
                 ),
               ),
             ],
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
@@ -265,17 +267,19 @@ class KaryailmiahView extends GetView<KaryailmiahController> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              Text(
-                "P20067",
-                style: TextStyle(
-                  fontSize: 16,
+              Flexible(
+                child: Text(
+                  "P20067",
+                  style: TextStyle(
+                    fontSize: 16,
+                  ),
                 ),
               ),
             ],
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 "Uncontrolled Keywords: ",
@@ -284,16 +288,18 @@ class KaryailmiahView extends GetView<KaryailmiahController> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              Text(
-                "Pertumbuhan ekonomi, IPM, Inflasi, Sektor Primer, Sektor Sekunder,",
-                style: TextStyle(
-                  fontSize: 16,
+              Flexible(
+                child: Text(
+                  "Pertumbuhan ekonomi, IPM, Inflasi, Sektor Primer, Sektor Sekunder,",
+                  style: TextStyle(
+                    fontSize: 16,
+                  ),
                 ),
               ),
             ],
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
@@ -303,16 +309,18 @@ class KaryailmiahView extends GetView<KaryailmiahController> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              Text(
-                "P > P461 Poverty",
-                style: TextStyle(
-                  fontSize: 16,
+              Flexible(
+                child: Text(
+                  "P > P461 Poverty",
+                  style: TextStyle(
+                    fontSize: 16,
+                  ),
                 ),
               ),
             ],
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
@@ -322,16 +330,18 @@ class KaryailmiahView extends GetView<KaryailmiahController> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              Text(
-                "Program Pascasarjana > S2 Ilmu Ekonomi",
-                style: TextStyle(
-                  fontSize: 16,
+              Flexible(
+                child: Text(
+                  "Program Pascasarjana > S2 Ilmu Ekonomi",
+                  style: TextStyle(
+                    fontSize: 16,
+                  ),
                 ),
               ),
             ],
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
@@ -341,16 +351,18 @@ class KaryailmiahView extends GetView<KaryailmiahController> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              Text(
-                "Mrs Yayuk Khotiarsih",
-                style: TextStyle(
-                  fontSize: 16,
+              Flexible(
+                child: Text(
+                  "Mrs Yayuk Khotiarsih",
+                  style: TextStyle(
+                    fontSize: 16,
+                  ),
                 ),
               ),
             ],
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
@@ -360,16 +372,18 @@ class KaryailmiahView extends GetView<KaryailmiahController> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              Text(
-                "10 Feb 2022 08:08",
-                style: TextStyle(
-                  fontSize: 16,
+              Flexible(
+                child: Text(
+                  "10 Feb 2022 08:08",
+                  style: TextStyle(
+                    fontSize: 16,
+                  ),
                 ),
               ),
             ],
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
@@ -379,16 +393,18 @@ class KaryailmiahView extends GetView<KaryailmiahController> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              Text(
-                "10 Feb 2022 08:08",
-                style: TextStyle(
-                  fontSize: 16,
+              Flexible(
+                child: Text(
+                  "10 Feb 2022 08:08",
+                  style: TextStyle(
+                    fontSize: 16,
+                  ),
                 ),
               ),
             ],
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
@@ -398,10 +414,12 @@ class KaryailmiahView extends GetView<KaryailmiahController> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              Text(
-                "http://repository.unsoed.ac.id/id/eprint/14290",
-                style: TextStyle(
-                  fontSize: 16,
+              Flexible(
+                child: Text(
+                  "http://repository.unsoed.ac.id/id/eprint/14290",
+                  style: TextStyle(
+                    fontSize: 16,
+                  ),
                 ),
               ),
             ],

@@ -88,32 +88,41 @@ class ListkaryailmiahView extends GetView<ListkaryailmiahController> {
           ),
           Container(
             height: MediaQuery.of(context).size.height * 0.84,
-            child: FutureBuilder<List<Karyailmiah>>(
+            child: FutureBuilder<List<dynamic>>(
               future: ListkaryailmiahController().getKaryadata(),
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.done) {
-                  return Center();
-                  // return ListView.builder(
-                  //   scrollDirection: Axis.vertical,
-                  //   itemCount: snapshot.data!.length,
-                  //   itemBuilder: (context, index) {
-                  //     var karya = snapshot.data![index];
-                  //     return Column(
-                  //       children: [
-                  //         Divider(),
-                  //         ListTile(
-                  //           leading: Image.asset('assets/file.png'),
-                  //           title: Text(karya.title),
-                  //           subtitle: Text(
-                  //               '${karya.creators[0].name.given} ${karya.creators[0].name.family} | ${karya.date} | ${karya.thesisType}  ${karya.type} | Universitas Jenderal Soedirman'),
-                  //           onTap: () {
-                  //             Get.toNamed(Routes.KARYAILMIAH);
-                  //           },
-                  //         ),
-                  //       ],
-                  //     );
-                  //   },
-                  // );
+                  return ListView.builder(
+                    scrollDirection: Axis.vertical,
+                    itemCount: snapshot.data!.length,
+                    itemBuilder: (context, index) {
+                      
+                      var karya = snapshot.data![index];
+                      var title = karya["title"];
+                      var namdep = karya["creators"][0]["name"]["given"];
+                      var nambel = karya["creators"][0]["name"]["family"];
+                      var date = karya["date"];
+                      var thesistype = karya["thesis_type"];
+                      var type = karya["type"];
+                      var institution = karya["institution"];
+
+
+                      return Column(
+                        children: [
+                          Divider(),
+                          ListTile(
+                            leading: Image.asset('assets/file.png'),
+                            title: Text(title),
+                            subtitle: Text(
+                                '${namdep} ${nambel} | ${date} | ${thesistype}  ${type} | ${institution}'),
+                            onTap: () {
+                              Get.toNamed(Routes.KARYAILMIAH);
+                            },
+                          ),
+                        ],
+                      );
+                    },
+                  );
                 } else {
                   return Center(child: CircularProgressIndicator());
                 }
