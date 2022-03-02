@@ -96,16 +96,24 @@ class ListkaryailmiahView extends GetView<ListkaryailmiahController> {
                     scrollDirection: Axis.vertical,
                     itemCount: snapshot.data!.length,
                     itemBuilder: (context, index) {
-                      
                       var karya = snapshot.data![index];
                       var title = karya["title"];
-                      var namdep = karya["creators"][0]["name"]["given"];
-                      var nambel = karya["creators"][0]["name"]["family"];
+                      var banyakpengarang = karya["creators"].length;
+                      List listnamdep = [];
+                      List listnambek = [];
+                      for (int i = 0; i < banyakpengarang; i++) {
+                        listnamdep.insert(
+                            i, karya["creators"][i]["name"]["given"]);
+                        listnambek.insert(
+                            i, karya["creators"][i]["name"]["family"]);
+                      }
+                      var namdep = listnamdep[0];
+                      var nambel = listnambek[0];
                       var date = karya["date"];
                       var thesistype = karya["thesis_type"];
                       var type = karya["type"];
                       var institution = karya["institution"];
-
+                      
 
                       return Column(
                         children: [
@@ -114,9 +122,9 @@ class ListkaryailmiahView extends GetView<ListkaryailmiahController> {
                             leading: Image.asset('assets/file.png'),
                             title: Text(title),
                             subtitle: Text(
-                                '${namdep} ${nambel} | ${date} | ${thesistype}  ${type} | ${institution}'),
+                                '${namdep} ${nambel} | ${date} | ${thesistype} ${type} | ${institution}'),
                             onTap: () {
-                              Get.toNamed(Routes.KARYAILMIAH);
+                              Get.toNamed(Routes.KARYAILMIAH, arguments: karya);
                             },
                           ),
                         ],

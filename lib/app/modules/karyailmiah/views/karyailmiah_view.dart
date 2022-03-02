@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_linkify/flutter_linkify.dart';
 
 import 'package:get/get.dart';
 import 'package:repository_mobile_unsoed/app/routes/app_pages.dart';
@@ -9,6 +10,39 @@ import '../controllers/karyailmiah_controller.dart';
 class KaryailmiahView extends GetView<KaryailmiahController> {
   @override
   Widget build(BuildContext context) {
+    var karya = Get.arguments;
+    var eprintid = karya["eprintid"];
+    var title = karya["title"];
+    var banyakpengarang = karya["creators"].length;
+    List listnamdep = [];
+    List listnambek = [];
+    for (int i = 0; i < banyakpengarang; i++) {
+      listnamdep.insert(i, karya["creators"][i]["name"]["given"]);
+      listnambek.insert(i, karya["creators"][i]["name"]["family"]);
+    }
+    var date = karya["date"];
+    var thesistype = karya["thesis_type"];
+    var type = karya["type"];
+    var institution = karya["institution"];
+    var abstrak = karya["abstract"];
+    var banyakdoc = karya["documents"].length;
+    List listdoc = [];
+    for (int i = 0; i < banyakdoc; i++) {
+      listdoc.insert(i, karya["documents"][i]);
+    }
+    listdoc.sort((a, b) => a["placement"].compareTo(b["placement"]));
+    var nomorinven = karya["note"];
+    var keyword = karya["keywords"];
+    var banyaksub = karya["subjects"].length;
+    List listsub = [];
+    for (int i = 0; i < banyaksub; i++) {
+      listsub.insert(i, karya["subjects"][i]);
+    }
+    var divisi = karya["divisions"];
+    var userid = karya["userid"];
+    var datedep = karya["datestamp"];
+    var datelas = karya["lastmod"];
+    var uri = karya["uri"];
     return Scaffold(
       appBar: AppBar(
         title: Text('path directory'),
@@ -89,7 +123,7 @@ class KaryailmiahView extends GetView<KaryailmiahController> {
           Container(
             width: MediaQuery.of(context).size.width,
             child: Text(
-              "Implementasi dan Analisis Optimasi Bandwidth dengan Queue Tree Menggunakan Algoritma HTB",
+              title,
               style: TextStyle(
                 fontSize: 26,
                 fontWeight: FontWeight.bold,
@@ -99,10 +133,39 @@ class KaryailmiahView extends GetView<KaryailmiahController> {
           SizedBox(
             height: 12,
           ),
+          Builder(builder: (context) {
+            if (banyakpengarang == 1) {
+              return Container(
+                width: MediaQuery.of(context).size.width,
+                child: Text(
+                  "Author: ${listnamdep[0]} ${listnambek[0]}",
+                  style: TextStyle(
+                    fontSize: 14.4,
+                  ),
+                ),
+              );
+            } else {
+              return ListView.builder(
+                shrinkWrap: true,
+                itemCount: listnamdep.length,
+                itemBuilder: (context, index) {
+                  return Container(
+                    width: MediaQuery.of(context).size.width,
+                    child: Text(
+                      "Author ${index + 1}: ${listnamdep[index]} ${listnambek[index]}",
+                      style: TextStyle(
+                        fontSize: 14.4,
+                      ),
+                    ),
+                  );
+                },
+              );
+            }
+          }),
           Container(
             width: MediaQuery.of(context).size.width,
             child: Text(
-              "Author: Ilham Kurniawan",
+              "Tahun: ${date}",
               style: TextStyle(
                 fontSize: 14.4,
               ),
@@ -111,16 +174,7 @@ class KaryailmiahView extends GetView<KaryailmiahController> {
           Container(
             width: MediaQuery.of(context).size.width,
             child: Text(
-              "Tahun: 2099",
-              style: TextStyle(
-                fontSize: 14.4,
-              ),
-            ),
-          ),
-          Container(
-            width: MediaQuery.of(context).size.width,
-            child: Text(
-              "Type: Skripsi Thesis",
+              "Type: ${thesistype} ${type}",
               style: TextStyle(
                 fontSize: 14.4,
               ),
@@ -142,95 +196,60 @@ class KaryailmiahView extends GetView<KaryailmiahController> {
           Container(
             width: MediaQuery.of(context).size.width,
             child: Text(
-              "Penelitian ini bertujuan untuk menganalisis bagaimana pengaruh pertumbuhan ekonomi, IPM, inflasi, serta pertumbuhan ekonomi sektoral terhadap kemiskinan di provinsi jawa tengah periode 2010-2017. Metode penelitian yang digunakan adalah dengan regresi data panel, untuk mengetahui bagaimana pengaruh dari masing-masing variabel tersebut dengan metode data panel serta analisis uji t. Hasil penelitian menunjukkan bahwa Pertumbuhan ekonomi berpengaruh negatif namun tidak signifikan, IPM berpengaruh negatif dan signifikan dan inflasi berpengaruh negatif dan signifikan. Sedangkan pertumbuhan ekonomi Sektor Primer berpengaruh positif tidak signifikan dan Sektor Sekunder berpengaruh negatif signifikan, Sektor Tersier berpengaruh negatif signifikan. Implikasi dari kesimpulan di atas adalah pertumbuhan ekonomi dapat menurunkan tingkat kemiskinan di Jawa Tengah, namun pada sektor primer pertumbuhan ekonomi ini malah menjadikan tingkat kemiskinan meningkat dikarenakan alih fungsi lahan pertanian menjadi industri hal ini perlunya campur tangan pemerintah dalam mengeluarkan kebijakan dalam hal perijinan, pada sektor sekunder dan tersier penyerapan tenaga kerja cukup baik dan meningkat disetiap tahunnya hal ini berarti perlunya peningkatan IPM daya saing masyarakat dalam peningkatan sumber daya manusia untuk dapat menambah skill sehingga dapat bersaing dalam penyerapan tenaga kerja. Tingkat inflasi pada penelitian ini memberikan dampak negatif terhadap kemiskinan, hal ini menunjukan bahwa inflasi tidak selalu berdampak buruk pada setiap keadaan, karena pada saat permintaan barang dan jasa naik maka akan dapat menyerap tenaga kerja yang lebih banyak sehingga dapat meningkatkan pendapatan masyarakat.",
+              abstrak.toString(),
               style: TextStyle(
                 fontSize: 14.4,
               ),
+              textAlign: TextAlign.justify,
             ),
           ),
           SizedBox(
             height: 12,
           ),
-          ListTile(
-            leading: Icon(Icons.picture_as_pdf),
-            title: Text('PDF (Cover)'),
-            subtitle: Text('COVER-Ilham-C2A017008-TESIS-2019-PDF.pdf'),
-            onTap: () async {
-              String link = "https://repository.unsoed.ac.id/14223/21/COVER-Falih Abdurrahman-F1B017070-Skripsi-2022.pdf";
-              if (await canLaunch(link)) {
-                await launch(link);
+          ListView.builder(
+            physics: NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
+            itemCount: listdoc.length,
+            itemBuilder: (context, index) {
+              if (listdoc[index]["security"] == "public") {
+                return ListTile(
+                  leading: Icon(Icons.picture_as_pdf),
+                  title: Text('PDF (${listdoc[index]["formatdesc"]})'),
+                  subtitle: Text(
+                    listdoc[index]["main"].toString(),
+                    style: TextStyle(overflow: TextOverflow.ellipsis),
+                  ),
+                  onTap: () async {
+                    String link =
+                        "https://repository.unsoed.ac.id/${eprintid}/${listdoc[index]["pos"]}/${listdoc[index]["main"]}";
+                    if (await canLaunch(link)) {
+                      await launch(link);
+                    } else {
+                      throw 'Could not launch $link';
+                    }
+                  },
+                );
               } else {
-                throw 'Could not launch $link';
+                return ListTile(
+                  leading: Icon(Icons.picture_as_pdf),
+                  title: Text('PDF (${listdoc[index]["formatdesc"]})'),
+                  subtitle: Text(
+                    listdoc[index]["main"].toString(),
+                    style: TextStyle(overflow: TextOverflow.ellipsis),
+                  ),
+                  trailing: Text("Restricted to Staff Only"),
+                  // onTap: () async {
+                  //   String link =
+                  //       "https://repository.unsoed.ac.id/${eprintid}/${listdoc[index]["pos"]}/${listdoc[index]["main"]}";
+                  //   if (await canLaunch(link)) {
+                  //     await launch(link);
+                  //   } else {
+                  //     throw 'Could not launch $link';
+                  //   }
+                  // },
+                );
               }
             },
-          ),
-          ListTile(
-            leading: Icon(Icons.picture_as_pdf),
-            title: Text('PDF (Legalitas)'),
-            subtitle: Text('LEGALITAS-Ilham-C2A017008-TESIS-2019-PDF.pdf'),
-            onTap: () async {
-              String link = "";
-              if (await canLaunch(link)) {
-                await launch(link);
-              } else {
-                throw 'Could not launch $link';
-              }
-            },
-          ),
-          ListTile(
-            leading: Icon(Icons.picture_as_pdf),
-            title: Text('PDF (Abstrak)'),
-            subtitle: Text('Abstrak-Ilham-C2A017008-TESIS-2019-PDF.pdf'),
-            onTap: () async {
-              String link = "";
-              if (await canLaunch(link)) {
-                await launch(link);
-              } else {
-                throw 'Could not launch $link';
-              }
-            },
-          ),
-          ListTile(
-            leading: Icon(Icons.picture_as_pdf),
-            title: Text('PDF (Bab I)'),
-            subtitle: Text('BAB-I-Ilham-C2A017008-TESIS-2019-PDF.pdf'),
-            onTap: () {},
-          ),
-          ListTile(
-            leading: Icon(Icons.picture_as_pdf),
-            title: Text('PDF (Bab II)'),
-            subtitle: Text('BAB-II-Ilham-C2A017008-TESIS-2019-PDF.pdf'),
-            onTap: () {},
-          ),
-          ListTile(
-            leading: Icon(Icons.picture_as_pdf),
-            title: Text('PDF (Bab III)'),
-            subtitle: Text('BAB-III-Ilham-C2A017008-TESIS-2019-PDF.pdf'),
-            onTap: () {},
-          ),
-          ListTile(
-            leading: Icon(Icons.picture_as_pdf),
-            title: Text('PDF (Bab IV)'),
-            subtitle: Text('BAB-IV-Ilham-C2A017008-TESIS-2019-PDF.pdf'),
-            onTap: () {},
-          ),
-          ListTile(
-            leading: Icon(Icons.picture_as_pdf),
-            title: Text('PDF (Bab V)'),
-            subtitle: Text('BAB-V-Ilham-C2A017008-TESIS-2019-PDF.pdf'),
-            onTap: () {},
-          ),
-          ListTile(
-            leading: Icon(Icons.picture_as_pdf),
-            title: Text('PDF (Daftar Pustaka)'),
-            subtitle: Text('DAFTAR-PUSTAKA-Ilham-C2A017008-TESIS-2019-PDF.pdf'),
-            onTap: () {},
-          ),
-          ListTile(
-            leading: Icon(Icons.picture_as_pdf),
-            title: Text('PDF (Lampiran)'),
-            subtitle: Text('LAMPIRAN-Ilham-C2A017008-TESIS-2019-PDF.pdf'),
-            onTap: () {},
           ),
           SizedBox(
             height: 12,
@@ -248,7 +267,7 @@ class KaryailmiahView extends GetView<KaryailmiahController> {
               ),
               Flexible(
                 child: Text(
-                  "Skripsi Thesis",
+                  "${thesistype} ${type}",
                   style: TextStyle(
                     fontSize: 16,
                   ),
@@ -269,7 +288,7 @@ class KaryailmiahView extends GetView<KaryailmiahController> {
               ),
               Flexible(
                 child: Text(
-                  "P20067",
+                  nomorinven.toString(),
                   style: TextStyle(
                     fontSize: 16,
                   ),
@@ -290,7 +309,7 @@ class KaryailmiahView extends GetView<KaryailmiahController> {
               ),
               Flexible(
                 child: Text(
-                  "Pertumbuhan ekonomi, IPM, Inflasi, Sektor Primer, Sektor Sekunder,",
+                  keyword.toString(),
                   style: TextStyle(
                     fontSize: 16,
                   ),
@@ -332,7 +351,7 @@ class KaryailmiahView extends GetView<KaryailmiahController> {
               ),
               Flexible(
                 child: Text(
-                  "Program Pascasarjana > S2 Ilmu Ekonomi",
+                  divisi.toString(),
                   style: TextStyle(
                     fontSize: 16,
                   ),
@@ -353,7 +372,7 @@ class KaryailmiahView extends GetView<KaryailmiahController> {
               ),
               Flexible(
                 child: Text(
-                  "Mrs Yayuk Khotiarsih",
+                  userid.toString(),
                   style: TextStyle(
                     fontSize: 16,
                   ),
@@ -374,7 +393,7 @@ class KaryailmiahView extends GetView<KaryailmiahController> {
               ),
               Flexible(
                 child: Text(
-                  "10 Feb 2022 08:08",
+                  datedep.toString(),
                   style: TextStyle(
                     fontSize: 16,
                   ),
@@ -395,7 +414,7 @@ class KaryailmiahView extends GetView<KaryailmiahController> {
               ),
               Flexible(
                 child: Text(
-                  "10 Feb 2022 08:08",
+                  datelas.toString(),
                   style: TextStyle(
                     fontSize: 16,
                   ),
@@ -415,11 +434,19 @@ class KaryailmiahView extends GetView<KaryailmiahController> {
                 ),
               ),
               Flexible(
-                child: Text(
-                  "http://repository.unsoed.ac.id/id/eprint/14290",
+                child: Linkify(
+                  onOpen: (link) async {
+                    if (await canLaunch(link.url)) {
+                      await launch(link.url);
+                    } else {
+                      throw 'Could not launch $link';
+                    }
+                  },
+                  options: LinkifyOptions(humanize: false),
                   style: TextStyle(
                     fontSize: 16,
                   ),
+                  text: uri.toString(),
                 ),
               ),
             ],
