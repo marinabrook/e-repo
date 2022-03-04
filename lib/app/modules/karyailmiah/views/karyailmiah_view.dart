@@ -146,6 +146,7 @@ class KaryailmiahView extends GetView<KaryailmiahController> {
               );
             } else {
               return ListView.builder(
+                physics: NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
                 itemCount: listnamdep.length,
                 itemBuilder: (context, index) {
@@ -317,69 +318,69 @@ class KaryailmiahView extends GetView<KaryailmiahController> {
               ),
             ],
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text(
-                "Subjects: ",
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              Flexible(
-                child: Text(
-                  "P > P461 Poverty",
-                  style: TextStyle(
-                    fontSize: 16,
-                  ),
-                ),
-              ),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text(
-                "Divisions:	",
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              Flexible(
-                child: Text(
-                  divisi.toString(),
-                  style: TextStyle(
-                    fontSize: 16,
-                  ),
-                ),
-              ),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text(
-                "Depositing User: ",
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              Flexible(
-                child: Text(
-                  userid.toString(),
-                  style: TextStyle(
-                    fontSize: 16,
-                  ),
-                ),
-              ),
-            ],
-          ),
+          // Row(
+          //   mainAxisAlignment: MainAxisAlignment.start,
+          //   crossAxisAlignment: CrossAxisAlignment.center,
+          //   children: [
+          //     Text(
+          //       "Subjects: ",
+          //       style: TextStyle(
+          //         fontSize: 16,
+          //         fontWeight: FontWeight.bold,
+          //       ),
+          //     ),
+          //     Flexible(
+          //       child: Text(
+          //         "P > P461 Poverty",
+          //         style: TextStyle(
+          //           fontSize: 16,
+          //         ),
+          //       ),
+          //     ),
+          //   ],
+          // ),
+          // Row(
+          //   mainAxisAlignment: MainAxisAlignment.start,
+          //   crossAxisAlignment: CrossAxisAlignment.center,
+          //   children: [
+          //     Text(
+          //       "Divisions:	",
+          //       style: TextStyle(
+          //         fontSize: 16,
+          //         fontWeight: FontWeight.bold,
+          //       ),
+          //     ),
+          //     Flexible(
+          //       child: Text(
+          //         divisi.toString(),
+          //         style: TextStyle(
+          //           fontSize: 16,
+          //         ),
+          //       ),
+          //     ),
+          //   ],
+          // ),
+          // Row(
+          //   mainAxisAlignment: MainAxisAlignment.start,
+          //   crossAxisAlignment: CrossAxisAlignment.center,
+          //   children: [
+          //     Text(
+          //       "Depositing User: ",
+          //       style: TextStyle(
+          //         fontSize: 16,
+          //         fontWeight: FontWeight.bold,
+          //       ),
+          //     ),
+          //     Flexible(
+          //       child: Text(
+          //         userid.toString(),
+          //         style: TextStyle(
+          //           fontSize: 16,
+          //         ),
+          //       ),
+          //     ),
+          //   ],
+          // ),
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
