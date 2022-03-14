@@ -4,6 +4,8 @@ import 'package:repository_mobile_unsoed/app/modules/about/bindings/about_bindin
 import 'package:repository_mobile_unsoed/app/modules/about/views/about_view.dart';
 import 'package:repository_mobile_unsoed/app/modules/faq/bindings/faq_binding.dart';
 import 'package:repository_mobile_unsoed/app/modules/faq/views/faq_view.dart';
+import 'package:repository_mobile_unsoed/app/modules/folder/bindings/folder_binding.dart';
+import 'package:repository_mobile_unsoed/app/modules/folder/views/folder_view.dart';
 import 'package:repository_mobile_unsoed/app/modules/home/bindings/home_binding.dart';
 import 'package:repository_mobile_unsoed/app/modules/home/views/home_view.dart';
 import 'package:repository_mobile_unsoed/app/modules/karyailmiah/bindings/karyailmiah_binding.dart';
@@ -50,6 +52,11 @@ class AppPages {
       name: _Paths.LISTKARYAILMIAH,
       page: () => ListkaryailmiahView(),
       binding: ListkaryailmiahBinding(),
+    ),
+    GetPage(
+      name: _Paths.FOLDER,
+      page: () => FolderView(),
+      binding: FolderBinding(),
     ),
   ];
 }

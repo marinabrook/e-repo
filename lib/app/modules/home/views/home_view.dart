@@ -16,7 +16,7 @@ class HomeView extends GetView<HomeController> {
         actions: [
           IconButton(
               onPressed: () {
-                Get.toNamed(Routes.LISTKARYAILMIAH);
+                // Get.toNamed(Routes.LISTKARYAILMIAH);
                 // ListkaryailmiahController().testKaryadata();
               },
               icon: Icon(Icons.search_outlined))
@@ -184,7 +184,9 @@ class HomeView extends GetView<HomeController> {
                   ),
                 ),
                 InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    Get.toNamed(Routes.FOLDER, arguments: "By Years");
+                  },
                   child: Card(
                     elevation: 4,
                     child: Padding(

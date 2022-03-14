@@ -10,6 +10,7 @@ abstract class Routes {
   static const PETUNJUK = _Paths.PETUNJUK;
   static const KARYAILMIAH = _Paths.KARYAILMIAH;
   static const LISTKARYAILMIAH = _Paths.LISTKARYAILMIAH;
+  static const FOLDER = _Paths.FOLDER;
 }
 
 abstract class _Paths {
@@ -19,4 +20,5 @@ abstract class _Paths {
   static const PETUNJUK = '/petunjuk';
   static const KARYAILMIAH = '/karyailmiah';
   static const LISTKARYAILMIAH = '/listkaryailmiah';
+  static const FOLDER = '/folder';
 }

@@ -2,18 +2,14 @@ import 'package:get/get.dart';
 import 'dart:convert';
 
 class KaryaProvider extends GetConnect {
-  final url = 'https://repository.unsoed.ac.id/cgi/exportview/year/2022/JSON/2022.js';
   // Get request
-  Future<Response> getKarya() async{
+  Future<Response> getKarya(year) async{
+    final url = 'https://repository.unsoed.ac.id/cgi/exportview/year/${year}/JSON/${year}.js';
     httpClient.timeout = Duration(minutes: 2);
     return await get('$url');
   }
 
-  Future<Response> postKarya(String name, String pekerjaan) {
-    final body = json.encode({"name": name, "pekerjaan": pekerjaan});
-
-    return post('https://reqres.in/api/users', body);
-  }
+  
 
   // Post request
   // Future<Response> postUser(Map data) => post('http://youapi/users', body: data);

@@ -8,8 +8,8 @@ class ListkaryailmiahController extends GetxController {
   var karil;
   var getkarya;
 
-  Future<List<dynamic>> getKaryadata() async {
-    List<dynamic> getkarya = await KaryaProvider().getKarya().then((value) {
+  Future<List<dynamic>> getKaryadata(year) async {
+    List<dynamic> getkarya = await KaryaProvider().getKarya(year).then((value) {
       List<dynamic> getkarya = value.body;
       return getkarya;
     });
@@ -17,34 +17,34 @@ class ListkaryailmiahController extends GetxController {
     return getkarya;
   }
 
-  void testKaryadata() async {
-    await KaryaProvider().getKarya().then((value) {
-      // var banyakpengarang = value.body[4]["creators"].length;
-      // List listnamdep = [];
-      // List listnambek = [];
+  // void testKaryadata() async {
+  //   await KaryaProvider().getKarya().then((value) {
+  //     // var banyakpengarang = value.body[4]["creators"].length;
+  //     // List listnamdep = [];
+  //     // List listnambek = [];
       
-      // for(int i = 0; i < banyakpengarang; i++){
-      //   listnamdep.insert(i, value.body[4]["creators"][i]["name"]["given"]);
-      //   listnambek.insert(i, value.body[4]["creators"][i]["name"]["family"]);
-      // }
-      // print(listnamdep[0] + listnambek[0]);
+  //     // for(int i = 0; i < banyakpengarang; i++){
+  //     //   listnamdep.insert(i, value.body[4]["creators"][i]["name"]["given"]);
+  //     //   listnambek.insert(i, value.body[4]["creators"][i]["name"]["family"]);
+  //     // }
+  //     // print(listnamdep[0] + listnambek[0]);
 
-      var banyakdoc = value.body[0]["documents"].length;
-      List listdoc = [];
-      for(int i = 0; i < banyakdoc; i++){
-        listdoc.insert(i, value.body[0]["documents"][i]);
-      }
-      listdoc.sort((a,b)=> a["placement"].compareTo(b["placement"]));
-      for(int i = 0; i < banyakdoc; i++){
-        print(listdoc[i]["formatdesc"]);
-      }
-    });
-  }
+  //     var banyakdoc = value.body[0]["documents"].length;
+  //     List listdoc = [];
+  //     for(int i = 0; i < banyakdoc; i++){
+  //       listdoc.insert(i, value.body[0]["documents"][i]);
+  //     }
+  //     listdoc.sort((a,b)=> a["placement"].compareTo(b["placement"]));
+  //     for(int i = 0; i < banyakdoc; i++){
+  //       print(listdoc[i]["formatdesc"]);
+  //     }
+  //   });
+  // }
 
   final count = 0.obs;
   @override
   void onInit() {
-    getKaryadata();
+    getKaryadata(Get.arguments["year"]);
     super.onInit();
   }
 

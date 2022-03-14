@@ -7,6 +7,7 @@ import 'package:repository_mobile_unsoed/app/routes/app_pages.dart';
 import '../controllers/listkaryailmiah_controller.dart';
 
 class ListkaryailmiahView extends GetView<ListkaryailmiahController> {
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -77,7 +78,7 @@ class ListkaryailmiahView extends GetView<ListkaryailmiahController> {
           Container(
             margin: EdgeInsets.only(left: 4),
             child: Text(
-              'root > path directory',
+              '${Get.arguments["bred"]} > ${Get.arguments["year"]}',
               style: TextStyle(
                 fontSize: 16,
               ),
@@ -89,7 +90,7 @@ class ListkaryailmiahView extends GetView<ListkaryailmiahController> {
           Container(
             height: MediaQuery.of(context).size.height * 0.84,
             child: FutureBuilder<List<dynamic>>(
-              future: ListkaryailmiahController().getKaryadata(),
+              future: ListkaryailmiahController().getKaryadata(Get.arguments["year"]),
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.done) {
                   return ListView.builder(
