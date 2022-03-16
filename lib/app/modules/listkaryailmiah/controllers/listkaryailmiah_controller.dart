@@ -13,7 +13,6 @@ class ListkaryailmiahController extends GetxController {
       List<dynamic> getkarya = value.body;
       return getkarya;
     });
-
     return getkarya;
   }
 

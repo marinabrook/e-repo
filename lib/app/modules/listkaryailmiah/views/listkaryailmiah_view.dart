@@ -7,16 +7,12 @@ import 'package:repository_mobile_unsoed/app/routes/app_pages.dart';
 import '../controllers/listkaryailmiah_controller.dart';
 
 class ListkaryailmiahView extends GetView<ListkaryailmiahController> {
-  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('path directory'),
         centerTitle: true,
-        actions: [
-          IconButton(onPressed: () {}, icon: Icon(Icons.search_outlined))
-        ],
       ),
       drawer: ListView(
         children: [
@@ -72,6 +68,7 @@ class ListkaryailmiahView extends GetView<ListkaryailmiahController> {
       ),
       drawerScrimColor: Colors.white,
       body: ListView(
+        physics: NeverScrollableScrollPhysics(),
         shrinkWrap: true,
         padding: EdgeInsets.symmetric(horizontal: 4, vertical: 8),
         children: [
@@ -88,9 +85,24 @@ class ListkaryailmiahView extends GetView<ListkaryailmiahController> {
             height: 16,
           ),
           Container(
-            height: MediaQuery.of(context).size.height * 0.84,
+            margin: EdgeInsets.symmetric(horizontal: 4),
+            child: TextField(
+              onChanged: (value) {
+                
+              },
+              decoration: InputDecoration(
+                  labelText: 'Search', 
+                  suffixIcon: Icon(Icons.search)),
+            ),
+          ),
+          SizedBox(
+            height: 16,
+          ),
+          Container(
+            height: MediaQuery.of(context).size.height * 0.76,
             child: FutureBuilder<List<dynamic>>(
-              future: ListkaryailmiahController().getKaryadata(Get.arguments["year"]),
+              future: ListkaryailmiahController()
+                  .getKaryadata(Get.arguments["year"]),
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.done) {
                   return ListView.builder(
@@ -114,7 +126,6 @@ class ListkaryailmiahView extends GetView<ListkaryailmiahController> {
                       var thesistype = karya["thesis_type"];
                       var type = karya["type"];
                       var institution = karya["institution"];
-                      
 
                       return Column(
                         children: [

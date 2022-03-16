@@ -7,6 +7,7 @@ import 'package:repository_mobile_unsoed/app/routes/app_pages.dart';
 import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
+  var allyears = [2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011, 2010, 2009, 2006, 2005, 2004];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -185,7 +186,9 @@ class HomeView extends GetView<HomeController> {
                 ),
                 InkWell(
                   onTap: () {
-                    Get.toNamed(Routes.FOLDER, arguments: "By Years");
+                    Get.toNamed(Routes.FOLDER, arguments: {
+                      'bred': "By Years",
+                      'allyear': allyears});
                   },
                   child: Card(
                     elevation: 4,
