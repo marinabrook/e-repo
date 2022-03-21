@@ -12,6 +12,8 @@ dependencies:
   url_launcher: 6.0.18
   http: 0.13.4
   flutter_native_splash: 2.1.0
+  draggable_scrollbar: 0.1.0
+  async: 2.8.2
   flutter: 
     sdk: flutter
 

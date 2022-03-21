@@ -1,3 +1,5 @@
+import 'package:async/async.dart';
+import 'package:draggable_scrollbar/draggable_scrollbar.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -7,6 +9,9 @@ import 'package:repository_mobile_unsoed/app/routes/app_pages.dart';
 import '../controllers/listkaryailmiah_controller.dart';
 
 class ListkaryailmiahView extends GetView<ListkaryailmiahController> {
+  final ScrollController _scrollController = ScrollController();
+  final AsyncMemoizer dCMemorizer = AsyncMemoizer();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -81,35 +86,93 @@ class ListkaryailmiahView extends GetView<ListkaryailmiahController> {
               ),
             ),
           ),
+
           SizedBox(
             height: 16,
           ),
           Container(
             margin: EdgeInsets.symmetric(horizontal: 4),
             child: TextField(
-              onChanged: (value) {
-                
-              },
+              onChanged: (value) {},
               decoration: InputDecoration(
-                  labelText: 'Search', 
-                  suffixIcon: Icon(Icons.search)),
+                  labelText: 'Search', suffixIcon: Icon(Icons.search)),
             ),
           ),
           SizedBox(
             height: 16,
           ),
+          // Container(
+          //   height: MediaQuery.of(context).size.height * 0.85,
+          //   child: FutureBuilder<dynamic>(
+          //     future: this.dCMemorizer.runOnce(() => ListkaryailmiahController().getKaryadata(Get.arguments["year"])),
+          //     builder: (context, snapshot) {
+          //       if (snapshot.connectionState == ConnectionState.done) {
+          //         return DraggableScrollbar.rrect(
+          //           alwaysVisibleScrollThumb: false,
+          //           backgroundColor: Colors.blue,
+          //           padding: EdgeInsets.only(right: 4),
+          //           heightScrollThumb: 72,
+          //           controller: _scrollController,
+          //           child: ListView.builder(
+          //             controller: _scrollController,
+          //             scrollDirection: Axis.vertical,
+          //             itemCount: snapshot.data!.length,
+          //             itemBuilder: (context, index) {
+          //               var karya = snapshot.data![index];
+          //               var title = karya["title"];
+          //               var banyakpengarang = karya["creators"].length;
+          //               List listnamdep = [];
+          //               List listnambek = [];
+          //               for (int i = 0; i < banyakpengarang; i++) {
+          //                 listnamdep.insert(
+          //                     i, karya["creators"][i]["name"]["given"]);
+          //                 listnambek.insert(
+          //                     i, karya["creators"][i]["name"]["family"]);
+          //               }
+          //               var namdep = listnamdep[0];
+          //               var nambel = listnambek[0];
+          //               var date = karya["date"];
+          //               var thesistype = karya["thesis_type"];
+          //               var type = karya["type"];
+          //               var institution = karya["institution"];
+
+          //               return Column(
+          //                 children: [
+          //                   Divider(),
+          //                   ListTile(
+          //                     leading: Image.asset('assets/file.png'),
+          //                     title: Text(title),
+          //                     subtitle: Text(
+          //                         '${nambel}, ${namdep} | ${date} | ${thesistype} ${type} | ${institution}'),
+          //                     onTap: () {
+          //                       Get.toNamed(Routes.KARYAILMIAH, arguments: karya);
+          //                     },
+          //                   ),
+          //                 ],
+          //               );
+          //             },
+          //           ),
+          //         );
+          //       } else {
+          //         return Center(child: CircularProgressIndicator());
+          //       }
+          //     },
+          //   ),
+          // ),
           Container(
-            height: MediaQuery.of(context).size.height * 0.76,
-            child: FutureBuilder<List<dynamic>>(
-              future: ListkaryailmiahController()
-                  .getKaryadata(Get.arguments["year"]),
-              builder: (context, snapshot) {
-                if (snapshot.connectionState == ConnectionState.done) {
-                  return ListView.builder(
+            height: MediaQuery.of(context).size.height * 0.7,
+            child: Obx(() => DraggableScrollbar.rrect(
+                  alwaysVisibleScrollThumb: false,
+                  backgroundColor: Colors.blue,
+                  padding: EdgeInsets.only(right: 4),
+                  heightScrollThumb: 72,
+                  controller: _scrollController,
+                  child: ListView.builder(
+                    controller: _scrollController,
                     scrollDirection: Axis.vertical,
-                    itemCount: snapshot.data!.length,
+                    itemCount: controller.listkarya.length,
                     itemBuilder: (context, index) {
-                      var karya = snapshot.data![index];
+                      var karya = controller.listkarya[index];
                       var title = karya["title"];
                       var banyakpengarang = karya["creators"].length;
                       List listnamdep = [];
@@ -133,8 +196,7 @@ class ListkaryailmiahView extends GetView<ListkaryailmiahController> {
                           ListTile(
                             leading: Image.asset('assets/file.png'),
                             title: Text(title),
-                            subtitle: Text(
-                                '${namdep} ${nambel} | ${date} | ${thesistype} ${type} | ${institution}'),
+                            subtitle: Text('${nambel}, ${namdep} | ${date} | ${thesistype} ${type} | ${institution}'),
                             onTap: () {
                               Get.toNamed(Routes.KARYAILMIAH, arguments: karya);
                             },
@@ -142,12 +204,8 @@ class ListkaryailmiahView extends GetView<ListkaryailmiahController> {
                         ],
                       );
                     },
-                  );
-                } else {
-                  return Center(child: CircularProgressIndicator());
-                }
-              },
-            ),
+                  ),
+                )),
           ),
         ],
       ),

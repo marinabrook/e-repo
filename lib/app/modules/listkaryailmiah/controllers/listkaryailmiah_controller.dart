@@ -7,15 +7,20 @@ import 'package:repository_mobile_unsoed/app/providers/karyailmiahP.dart';
 class ListkaryailmiahController extends GetxController {
   var karil;
   var getkarya;
+  var listkarya = [].obs;
 
-  Future<List<dynamic>> getKaryadata(year) async {
-    List<dynamic> getkarya = await KaryaProvider().getKarya(year).then((value) {
-      List<dynamic> getkarya = value.body;
-      return getkarya;
+  // Future<List<dynamic>> getKaryadata(year) async {
+  //   List<dynamic> getkarya = await KaryaProvider().getKarya(year).then((value) {
+  //     List<dynamic> getkarya = value.body;
+  //     return getkarya;
+  //   });
+  //   return getkarya;
+  // }
+  void fetchkarya(year) async {
+    await KaryaProvider().getKarya(year).then((value) {
+      listkarya.assignAll(value.body);
     });
-    return getkarya;
   }
-
   // void testKaryadata() async {
   //   await KaryaProvider().getKarya().then((value) {
   //     // var banyakpengarang = value.body[4]["creators"].length;
@@ -43,7 +48,8 @@ class ListkaryailmiahController extends GetxController {
   final count = 0.obs;
   @override
   void onInit() {
-    getKaryadata(Get.arguments["year"]);
+    // getKaryadata(Get.arguments["year"]);
+    fetchkarya(Get.arguments["year"]);
     super.onInit();
   }
 
