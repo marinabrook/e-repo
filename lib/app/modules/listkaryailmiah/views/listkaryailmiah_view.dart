@@ -16,8 +16,14 @@ class ListkaryailmiahView extends GetView<ListkaryailmiahController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('path directory'),
+        title: Text('${Get.arguments["year"]}'),
         centerTitle: true,
+        actions: [
+          IconButton(
+              onPressed: () {
+              },
+              icon: Icon(Icons.search_outlined))
+        ],
       ),
       drawer: ListView(
         children: [
@@ -93,9 +99,13 @@ class ListkaryailmiahView extends GetView<ListkaryailmiahController> {
           Container(
             margin: EdgeInsets.symmetric(horizontal: 4),
             child: TextField(
-              onChanged: (value) {},
+              onChanged: (value) {
+                controller.filterkarya(value);
+              },
               decoration: InputDecoration(
-                  labelText: 'Search', suffixIcon: Icon(Icons.search)),
+                labelText: 'Search',
+                suffixIcon: Icon(Icons.search),
+              ),
             ),
           ),
           SizedBox(
@@ -160,7 +170,7 @@ class ListkaryailmiahView extends GetView<ListkaryailmiahController> {
           //   ),
           // ),
           Container(
-            height: MediaQuery.of(context).size.height * 0.7,
+            height: MediaQuery.of(context).size.height * 0.77,
             child: Obx(() => DraggableScrollbar.rrect(
                   alwaysVisibleScrollThumb: false,
                   backgroundColor: Colors.blue,
@@ -170,9 +180,9 @@ class ListkaryailmiahView extends GetView<ListkaryailmiahController> {
                   child: ListView.builder(
                     controller: _scrollController,
                     scrollDirection: Axis.vertical,
-                    itemCount: controller.listkarya.length,
+                    itemCount: controller.foundkarya.value.length,
                     itemBuilder: (context, index) {
-                      var karya = controller.listkarya[index];
+                      var karya = controller.foundkarya.value[index];
                       var title = karya["title"];
                       var banyakpengarang = karya["creators"].length;
                       List listnamdep = [];
@@ -196,7 +206,8 @@ class ListkaryailmiahView extends GetView<ListkaryailmiahController> {
                           ListTile(
                             leading: Image.asset('assets/file.png'),
                             title: Text(title),
-                            subtitle: Text('${nambel}, ${namdep} | ${date} | ${thesistype} ${type} | ${institution}'),
+                            subtitle: Text(
+                                '${nambel}, ${namdep} | ${date} | ${thesistype} ${type} | ${institution}'),
                             onTap: () {
                               Get.toNamed(Routes.KARYAILMIAH, arguments: karya);
                             },

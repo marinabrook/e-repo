@@ -14,6 +14,12 @@ class FolderView extends GetView<FolderController> {
       appBar: AppBar(
         title: Text(bred),
         centerTitle: true,
+        actions: [
+          IconButton(
+              onPressed: () {
+              },
+              icon: Icon(Icons.search_outlined))
+        ],
       ),
       drawer: ListView(
         children: [

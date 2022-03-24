@@ -8,6 +8,7 @@ class ListkaryailmiahController extends GetxController {
   var karil;
   var getkarya;
   var listkarya = [].obs;
+  RxList<dynamic> foundkarya = RxList<dynamic>([]);
 
   // Future<List<dynamic>> getKaryadata(year) async {
   //   List<dynamic> getkarya = await KaryaProvider().getKarya(year).then((value) {
@@ -26,7 +27,7 @@ class ListkaryailmiahController extends GetxController {
   //     // var banyakpengarang = value.body[4]["creators"].length;
   //     // List listnamdep = [];
   //     // List listnambek = [];
-      
+
   //     // for(int i = 0; i < banyakpengarang; i++){
   //     //   listnamdep.insert(i, value.body[4]["creators"][i]["name"]["given"]);
   //     //   listnambek.insert(i, value.body[4]["creators"][i]["name"]["family"]);
@@ -50,6 +51,7 @@ class ListkaryailmiahController extends GetxController {
   void onInit() {
     // getKaryadata(Get.arguments["year"]);
     fetchkarya(Get.arguments["year"]);
+    foundkarya.value = listkarya;
     super.onInit();
   }
 
@@ -60,5 +62,28 @@ class ListkaryailmiahController extends GetxController {
 
   @override
   void onClose() {}
+  void filterkarya(String namakarya) {
+    List<dynamic> hasil = [];
+    if (namakarya.isEmpty) {
+      hasil = listkarya;
+    } else {
+      hasil = listkarya.where((element) {
+        return element["title"]
+                .toString()
+                .toLowerCase()
+                .contains(namakarya.toLowerCase()) ||
+            element["creators"][0]["name"]["given"]
+                .toString()
+                .toLowerCase()
+                .contains(namakarya.toLowerCase()) ||
+            element["creators"][0]["name"]["family"]
+                .toString()
+                .toLowerCase()
+                .contains(namakarya.toLowerCase());
+      }).toList();
+    }
+    foundkarya.value = hasil;
+  }
+
   void increment() => count.value++;
 }
