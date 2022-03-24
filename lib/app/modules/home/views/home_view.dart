@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:repository_mobile_unsoed/app/modules/listkaryailmiah/controllers/listkaryailmiah_controller.dart';
-import 'package:repository_mobile_unsoed/app/modules/models/userM.dart';
 import 'package:repository_mobile_unsoed/app/routes/app_pages.dart';
 
 import '../controllers/home_controller.dart';
@@ -276,53 +275,42 @@ class HomeView extends GetView<HomeController> {
           ),
           Container(
             height: 180,
-            child: FutureBuilder<List<Datum?>>(
-                future: HomeController().getUserdata(),
-                builder: (context, snapshot) {
-                  if (snapshot.connectionState == ConnectionState.done) {
-                    return ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: snapshot.data!.length,
-                      itemBuilder: (context, index) {
-                        var user = snapshot.data![index];
-                        return InkWell(
-                          onTap: () {
-                            print(user!.id);
-                          },
-                          child: Card(
-                            elevation: 4,
-                            child: Column(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Image.asset(
-                                    'assets/person.png',
-                                    height: 100,
-                                    width: 100,
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Container(
-                                    width: 120,
-                                    child: Text(
-                                      user!.firstName + " " + user.lastName,
-                                      textAlign: TextAlign.center,
-                                      overflow: TextOverflow.ellipsis,
-                                      maxLines: 2,
-                                    ),
-                                  ),
-                                ),
-                              ],
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: 20,
+              itemBuilder: (context, index) {
+                return InkWell(
+                  onTap: () {},
+                  child: Card(
+                    elevation: 4,
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Image.asset(
+                            'assets/person.png',
+                            height: 100,
+                            width: 100,
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            width: 120,
+                            child: Text(
+                              'Ilham Suryanegara',
+                              textAlign: TextAlign.center,
+                              overflow: TextOverflow.ellipsis,
+                              maxLines: 3,
                             ),
                           ),
-                        );
-                      },
-                    );
-                  } else {
-                    return Center(child: CircularProgressIndicator());
-                  }
-                }),
+                        ),
+                      ],
+                    ),
+                  ),
+                );
+              },
+            ),
           ),
           SizedBox(
             height: 12,
