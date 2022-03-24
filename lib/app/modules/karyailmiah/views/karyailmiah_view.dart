@@ -10,7 +10,7 @@ import '../controllers/karyailmiah_controller.dart';
 class KaryailmiahView extends GetView<KaryailmiahController> {
   @override
   Widget build(BuildContext context) {
-    var karya = Get.arguments;
+    var karya = Get.arguments["karya"];
     var eprintid = karya["eprintid"];
     var title = karya["title"];
     var banyakpengarang = karya["creators"].length;
@@ -45,7 +45,7 @@ class KaryailmiahView extends GetView<KaryailmiahController> {
     var uri = karya["uri"];
     return Scaffold(
       appBar: AppBar(
-        title: Text('path directory'),
+        title: Text('${Get.arguments["year"]}'),
         centerTitle: true,
         actions: [
           IconButton(onPressed: () {}, icon: Icon(Icons.search_outlined))
@@ -111,7 +111,7 @@ class KaryailmiahView extends GetView<KaryailmiahController> {
           Container(
             margin: EdgeInsets.only(left: 4),
             child: Text(
-              'root > path directory',
+              '${Get.arguments["bred"]}',
               style: TextStyle(
                 fontSize: 16,
               ),
@@ -166,7 +166,7 @@ class KaryailmiahView extends GetView<KaryailmiahController> {
           Container(
             width: MediaQuery.of(context).size.width,
             child: Text(
-              "Tahun: ${date}",
+              "Date: ${date}",
               style: TextStyle(
                 fontSize: 14.4,
               ),

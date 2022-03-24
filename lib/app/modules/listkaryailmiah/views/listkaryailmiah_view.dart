@@ -19,10 +19,7 @@ class ListkaryailmiahView extends GetView<ListkaryailmiahController> {
         title: Text('${Get.arguments["year"]}'),
         centerTitle: true,
         actions: [
-          IconButton(
-              onPressed: () {
-              },
-              icon: Icon(Icons.search_outlined))
+          IconButton(onPressed: () {}, icon: Icon(Icons.search_outlined))
         ],
       ),
       drawer: ListView(
@@ -171,7 +168,9 @@ class ListkaryailmiahView extends GetView<ListkaryailmiahController> {
           // ),
           Container(
             height: MediaQuery.of(context).size.height * 0.77,
-            child: Obx(() => DraggableScrollbar.rrect(
+            child: controller.obx(
+              (state) {
+                return DraggableScrollbar.rrect(
                   alwaysVisibleScrollThumb: false,
                   backgroundColor: Colors.blue,
                   padding: EdgeInsets.only(right: 4),
@@ -200,23 +199,56 @@ class ListkaryailmiahView extends GetView<ListkaryailmiahController> {
                       var type = karya["type"];
                       var institution = karya["institution"];
 
-                      return Column(
-                        children: [
-                          Divider(),
-                          ListTile(
-                            leading: Image.asset('assets/file.png'),
-                            title: Text(title),
-                            subtitle: Text(
-                                '${nambel}, ${namdep} | ${date} | ${thesistype} ${type} | ${institution}'),
-                            onTap: () {
-                              Get.toNamed(Routes.KARYAILMIAH, arguments: karya);
-                            },
-                          ),
-                        ],
-                      );
+                      if (index == 0) {
+                        return Column(
+                          children: [
+                            Divider(),
+                            ListTile(
+                              leading: Image.asset('assets/file.png'),
+                              title: Text(title),
+                              subtitle: Text(
+                                  '${nambel}, ${namdep} | ${date} | ${thesistype} ${type} | ${institution}'),
+                              onTap: () {
+                                Get.toNamed(Routes.KARYAILMIAH, arguments: {
+                                  'year': '${Get.arguments["year"]}',
+                                  'bred':
+                                      '${Get.arguments["bred"]} > ${Get.arguments["year"]}',
+                                  'karya': karya
+                                });
+                              },
+                            ),
+                            Divider(),
+                          ],
+                        );
+                      } else {
+                        return Column(
+                          children: [
+                            ListTile(
+                              leading: Image.asset('assets/file.png'),
+                              title: Text(title),
+                              subtitle: Text(
+                                  '${nambel}, ${namdep} | ${date} | ${thesistype} ${type} | ${institution}'),
+                              onTap: () {
+                                Get.toNamed(Routes.KARYAILMIAH,
+                                    arguments: karya);
+                              },
+                            ),
+                            Divider(),
+                          ],
+                        );
+                      }
                     },
                   ),
-                )),
+                );
+              },
+              onLoading: Center(
+                child: CircularProgressIndicator(),
+              ),
+              onEmpty: Center(
+                child: Text("Tidak ada Data"),
+              ),
+              onError: (error) => Text(error!),
+            ),
           ),
         ],
       ),

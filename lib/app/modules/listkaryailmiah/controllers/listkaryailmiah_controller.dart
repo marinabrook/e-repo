@@ -4,7 +4,7 @@ import 'package:http/http.dart';
 import 'package:repository_mobile_unsoed/app/modules/models/karyailmiahM.dart';
 import 'package:repository_mobile_unsoed/app/providers/karyailmiahP.dart';
 
-class ListkaryailmiahController extends GetxController {
+class ListkaryailmiahController extends GetxController with StateMixin{
   var karil;
   var getkarya;
   var listkarya = [].obs;
@@ -18,9 +18,11 @@ class ListkaryailmiahController extends GetxController {
   //   return getkarya;
   // }
   void fetchkarya(year) async {
+    change(null, status: RxStatus.loading());
     await KaryaProvider().getKarya(year).then((value) {
       listkarya.assignAll(value.body);
     });
+    change(null, status: RxStatus.success());
   }
   // void testKaryadata() async {
   //   await KaryaProvider().getKarya().then((value) {
