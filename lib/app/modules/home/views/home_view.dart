@@ -6,7 +6,25 @@ import 'package:repository_mobile_unsoed/app/routes/app_pages.dart';
 import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
-  var allyears = [2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011, 2010, 2009, 2006, 2005, 2004];
+  final allyears = [
+    2022,
+    2021,
+    2020,
+    2019,
+    2018,
+    2017,
+    2016,
+    2015,
+    2014,
+    2013,
+    2012,
+    2011,
+    2010,
+    2009,
+    2006,
+    2005,
+    2004
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,10 +32,7 @@ class HomeView extends GetView<HomeController> {
         title: Text('REPOSITORY UNSOED'),
         centerTitle: true,
         actions: [
-          IconButton(
-              onPressed: () {
-              },
-              icon: Icon(Icons.search_outlined))
+          IconButton(onPressed: () {}, icon: Icon(Icons.search_outlined))
         ],
       ),
       drawer: ListView(
@@ -75,18 +90,18 @@ class HomeView extends GetView<HomeController> {
       drawerScrimColor: Colors.white,
       body: ListView(
         shrinkWrap: true,
-        padding: EdgeInsets.symmetric(horizontal: 4, vertical: 8),
+        padding: EdgeInsets.symmetric(horizontal: 4, vertical: 12),
         children: [
           Container(
             margin: EdgeInsets.only(left: 4),
             child: Text(
-              'Welcome to Mobile Repository Universitas Jenderal Soedirman',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              'Welcome to Mobile Repository\nUniversitas Jenderal Soedirman',
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),
           ),
           SizedBox(
-            height: 16,
+            height: 24,
           ),
           Container(
             height: 180,
@@ -95,7 +110,15 @@ class HomeView extends GetView<HomeController> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    Get.snackbar(
+                      "Fitur ini belum tersedia.",
+                      "Silahkan gunakan versi web ^_^",
+                      snackPosition: SnackPosition.BOTTOM,
+                      duration: Duration(seconds: 1, milliseconds: 500),
+                      animationDuration: Duration(milliseconds: 500),
+                    );
+                  },
                   child: Card(
                     elevation: 4,
                     child: Padding(
@@ -121,7 +144,15 @@ class HomeView extends GetView<HomeController> {
                   ),
                 ),
                 InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    Get.snackbar(
+                      "Fitur ini belum tersedia.",
+                      "Silahkan gunakan versi web ^_^",
+                      snackPosition: SnackPosition.BOTTOM,
+                      duration: Duration(seconds: 1, milliseconds: 500),
+                      animationDuration: Duration(milliseconds: 500),
+                    );
+                  },
                   child: Card(
                     elevation: 4,
                     child: Padding(
@@ -149,14 +180,24 @@ class HomeView extends GetView<HomeController> {
               ],
             ),
           ),
-          SizedBox(height: 32,),
+          SizedBox(
+            height: 32,
+          ),
           Container(
             height: 180,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    Get.snackbar(
+                      "Fitur ini belum tersedia.",
+                      "Silahkan gunakan versi web ^_^",
+                      snackPosition: SnackPosition.BOTTOM,
+                      duration: Duration(seconds: 1, milliseconds: 500),
+                      animationDuration: Duration(milliseconds: 500),
+                    );
+                  },
                   child: Card(
                     elevation: 4,
                     child: Padding(
@@ -183,9 +224,8 @@ class HomeView extends GetView<HomeController> {
                 ),
                 InkWell(
                   onTap: () {
-                    Get.toNamed(Routes.FOLDER, arguments: {
-                      'bred': "By Years",
-                      'allyear': allyears});
+                    Get.toNamed(Routes.FOLDER,
+                        arguments: {'bred': "By Years", 'allyear': allyears});
                   },
                   child: Card(
                     elevation: 4,
@@ -218,103 +258,8 @@ class HomeView extends GetView<HomeController> {
             height: 16,
           ),
           Container(
-            margin: EdgeInsets.only(left: 4),
-            child: Text(
-              'Most Downloaded Items',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-            ),
-          ),
-          Container(
-            height: 200,
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: 20,
-              itemBuilder: (context, index) {
-                return InkWell(
-                  onTap: () {},
-                  child: Card(
-                    elevation: 4,
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Image.asset(
-                            'assets/file.png',
-                            height: 100,
-                            width: 100,
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Container(
-                            width: 120,
-                            child: Text(
-                              'Implementasi dan Analisis Optimasi Bandwidth dengan Queue Tree Menggunakan Algoritma HTB',
-                              textAlign: TextAlign.center,
-                              overflow: TextOverflow.ellipsis,
-                              maxLines: 3,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                );
-              },
-            ),
-          ),
-          SizedBox(
-            height: 12,
-          ),
-          Container(
-            margin: EdgeInsets.only(left: 4),
-            child: Text(
-              'Top Authors',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-            ),
-          ),
-          Container(
-            height: 180,
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: 20,
-              itemBuilder: (context, index) {
-                return InkWell(
-                  onTap: () {},
-                  child: Card(
-                    elevation: 4,
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Image.asset(
-                            'assets/person.png',
-                            height: 100,
-                            width: 100,
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Container(
-                            width: 120,
-                            child: Text(
-                              'Ilham Suryanegara',
-                              textAlign: TextAlign.center,
-                              overflow: TextOverflow.ellipsis,
-                              maxLines: 3,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                );
-              },
-            ),
-          ),
-          SizedBox(
-            height: 12,
-          ),
+            padding: EdgeInsets.symmetric(horizontal: 24),
+              child: ElevatedButton(onPressed: () {}, child: Text("SEARCH"))),
           // SizedBox(height: 12,),
           // Container(
           //   margin: EdgeInsets.only(left: 4),

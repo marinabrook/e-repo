@@ -242,12 +242,33 @@ class ListkaryailmiahView extends GetView<ListkaryailmiahController> {
                 );
               },
               onLoading: Center(
-                child: CircularProgressIndicator(),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    CircularProgressIndicator(),
+                    SizedBox(height: 24,),
+                    Text(
+                      "Silahkan tunggu sebentar.. .",
+                      style: TextStyle(
+                        fontSize: 18,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                ),
               ),
               onEmpty: Center(
                 child: Text("Tidak ada Data"),
               ),
-              onError: (error) => Text(error!),
+              onError: (error) => Center(
+                child: Text(
+                  error.toString(),
+                  style: TextStyle(
+                    fontSize: 18,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ),
             ),
           ),
         ],

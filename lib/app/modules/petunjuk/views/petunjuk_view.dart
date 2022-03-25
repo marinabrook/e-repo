@@ -69,7 +69,7 @@ class PetunjukView extends GetView<PetunjukController> {
             title: Text('Browse'),
           ),
           Divider(),
-           ListTile(
+          ListTile(
             onTap: () {},
             leading: Icon(Icons.login),
             title: Text('Login'),
@@ -236,19 +236,21 @@ class PetunjukView extends GetView<PetunjukController> {
             ),
           ),
           Container(
-            margin: EdgeInsets.symmetric(horizontal: 100),
-            alignment: Alignment.center,
-            height: 180,
-            width: 320,
-            color: Colors.amber,
-            child: Text(
-              "Video",
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
+              margin: EdgeInsets.symmetric(horizontal: 60),
+              alignment: Alignment.center,
+              height: 200,
+              width: 400,
+              child: InkWell(
+                  onTap: () async {
+                    String link =
+                        "https://youtu.be/KqJUhIqoXpM";
+                    if (await canLaunch(link)) {
+                      await launch(link);
+                    } else {
+                      throw 'Could not launch $link';
+                    }
+                  },
+                  child: Image.asset('assets/thumvid.png'))),
           SizedBox(
             height: 16,
           ),
@@ -293,15 +295,15 @@ class PetunjukView extends GetView<PetunjukController> {
             width: MediaQuery.of(context).size.width,
             child: RichText(
               text: TextSpan(
-                style: TextStyle(
-                  fontSize: 14.4,
-                  color: Colors.black
-                ),
-                children: <TextSpan>[
-                  TextSpan(text: "2. Scaning/pindai Lembar Pernyataan Persetujuan Publikasi Karya Ilmiah Untuk Kepentingan Akademis yang telah anda isi dalam "),
-                  TextSpan(text: "bentuk PDF berwarna.",style: TextStyle(fontWeight: FontWeight.bold)),
-                ]
-              ),
+                  style: TextStyle(fontSize: 14.4, color: Colors.black),
+                  children: <TextSpan>[
+                    TextSpan(
+                        text:
+                            "2. Scaning/pindai Lembar Pernyataan Persetujuan Publikasi Karya Ilmiah Untuk Kepentingan Akademis yang telah anda isi dalam "),
+                    TextSpan(
+                        text: "bentuk PDF berwarna.",
+                        style: TextStyle(fontWeight: FontWeight.bold)),
+                  ]),
             ),
           ),
           Container(
@@ -417,7 +419,7 @@ class PetunjukView extends GetView<PetunjukController> {
           SizedBox(
             height: 8,
           ),
-           Container(
+          Container(
             margin: EdgeInsets.symmetric(
                 horizontal: MediaQuery.of(context).size.width * 0.04),
             width: MediaQuery.of(context).size.width,
@@ -436,8 +438,7 @@ class PetunjukView extends GetView<PetunjukController> {
                         decoration: TextDecoration.underline),
                     recognizer: TapGestureRecognizer()
                       ..onTap = () async {
-                        String link =
-                            "https://forms.gle/jWapogTmdCtSxESs5";
+                        String link = "https://forms.gle/jWapogTmdCtSxESs5";
                         if (await canLaunch(link)) {
                           await launch(link);
                         } else {
@@ -481,7 +482,7 @@ class PetunjukView extends GetView<PetunjukController> {
           SizedBox(
             height: 8,
           ),
-           Container(
+          Container(
             margin: EdgeInsets.symmetric(
                 horizontal: MediaQuery.of(context).size.width * 0.04),
             width: MediaQuery.of(context).size.width,
@@ -500,8 +501,7 @@ class PetunjukView extends GetView<PetunjukController> {
                         decoration: TextDecoration.underline),
                     recognizer: TapGestureRecognizer()
                       ..onTap = () async {
-                        String link =
-                            "";
+                        String link = "";
                         if (await canLaunch(link)) {
                           await launch(link);
                         } else {
@@ -516,7 +516,7 @@ class PetunjukView extends GetView<PetunjukController> {
           SizedBox(
             height: 8,
           ),
-           Container(
+          Container(
             margin: EdgeInsets.symmetric(
                 horizontal: MediaQuery.of(context).size.width * 0.04),
             width: MediaQuery.of(context).size.width,
@@ -535,8 +535,7 @@ class PetunjukView extends GetView<PetunjukController> {
                         decoration: TextDecoration.underline),
                     recognizer: TapGestureRecognizer()
                       ..onTap = () async {
-                        String link =
-                            "";
+                        String link = "";
                         if (await canLaunch(link)) {
                           await launch(link);
                         } else {

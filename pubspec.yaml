@@ -27,5 +27,6 @@ flutter:
     - assets/folder.png
     - assets/file.png
     - assets/person.png
+    - assets/thumvid.png
   uses-material-design: true
 
