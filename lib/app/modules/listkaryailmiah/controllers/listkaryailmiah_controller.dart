@@ -5,8 +5,7 @@ import 'package:repository_mobile_unsoed/app/modules/models/karyailmiahM.dart';
 import 'package:repository_mobile_unsoed/app/providers/karyailmiahP.dart';
 
 class ListkaryailmiahController extends GetxController with StateMixin {
-  var karil;
-  var getkarya;
+  
   var listkarya = [].obs;
   RxList<dynamic> foundkarya = RxList<dynamic>([]);
 

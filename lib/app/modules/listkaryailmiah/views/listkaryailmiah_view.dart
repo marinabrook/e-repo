@@ -91,7 +91,6 @@ class ListkaryailmiahView extends GetView<ListkaryailmiahController> {
                 ),
               ),
             ),
-
             SizedBox(
               height: 16,
             ),
@@ -111,7 +110,7 @@ class ListkaryailmiahView extends GetView<ListkaryailmiahController> {
                       width: 1.0,
                     ),
                   ),
-                  contentPadding: EdgeInsets.symmetric(horizontal: 12)
+                  contentPadding: EdgeInsets.symmetric(horizontal: 12),
                 ),
               ),
             ),
