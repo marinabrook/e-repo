@@ -62,7 +62,9 @@ class FaqView extends GetView<FaqController> {
             title: Text('FAQ'),
           ),
           ListTile(
-            onTap: () {},
+            onTap: () {
+              Get.offNamed(Routes.PENCARIAN);
+            },
             leading: Icon(Icons.search_outlined),
             title: Text('Browse'),
           ),

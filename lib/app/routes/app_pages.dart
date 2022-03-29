@@ -12,6 +12,8 @@ import 'package:repository_mobile_unsoed/app/modules/karyailmiah/bindings/karyai
 import 'package:repository_mobile_unsoed/app/modules/karyailmiah/views/karyailmiah_view.dart';
 import 'package:repository_mobile_unsoed/app/modules/listkaryailmiah/bindings/listkaryailmiah_binding.dart';
 import 'package:repository_mobile_unsoed/app/modules/listkaryailmiah/views/listkaryailmiah_view.dart';
+import 'package:repository_mobile_unsoed/app/modules/pencarian/bindings/pencarian_binding.dart';
+import 'package:repository_mobile_unsoed/app/modules/pencarian/views/pencarian_view.dart';
 import 'package:repository_mobile_unsoed/app/modules/petunjuk/bindings/petunjuk_binding.dart';
 import 'package:repository_mobile_unsoed/app/modules/petunjuk/views/petunjuk_view.dart';
 
@@ -57,6 +59,11 @@ class AppPages {
       name: _Paths.FOLDER,
       page: () => FolderView(),
       binding: FolderBinding(),
+    ),
+    GetPage(
+      name: _Paths.PENCARIAN,
+      page: () => PencarianView(),
+      binding: PencarianBinding(),
     ),
   ];
 }

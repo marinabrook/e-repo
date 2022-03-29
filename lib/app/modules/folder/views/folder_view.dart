@@ -61,7 +61,9 @@ class FolderView extends GetView<FolderController> {
             title: Text('FAQ'),
           ),
           ListTile(
-            onTap: () {},
+            onTap: () {
+              Get.toNamed(Routes.PENCARIAN);
+            },
             leading: Icon(Icons.search_outlined),
             title: Text('Browse'),
           ),
