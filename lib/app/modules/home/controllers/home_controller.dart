@@ -26,7 +26,7 @@ class HomeController extends GetxController {
   void search() {
     if (searchFormKey.currentState!.validate()) {
       // print(searchController.text);
-      Get.toNamed(Routes.PENCARIAN);
+      Get.toNamed(Routes.PENCARIAN, arguments: searchController.value.text);
       searchController.clear();
     }
   }

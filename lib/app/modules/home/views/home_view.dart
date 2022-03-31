@@ -150,6 +150,7 @@ class HomeView extends GetView<HomeController> {
                       child: ElevatedButton(
                         onPressed: () {
                           controller.search();
+                          FocusScope.of(context).unfocus();
                         },
                         child: Text("SEARCH"),
                       ),

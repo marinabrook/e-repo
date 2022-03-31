@@ -239,7 +239,12 @@ class ListkaryailmiahView extends GetView<ListkaryailmiahController> {
                                     '${nambel}, ${namdep} | ${date} | ${thesistype} ${type} | ${institution}'),
                                 onTap: () {
                                   Get.toNamed(Routes.KARYAILMIAH,
-                                      arguments: karya);
+                                      arguments: {
+                                    'year': '${Get.arguments["year"]}',
+                                    'bred':
+                                        '${Get.arguments["bred"]} > ${Get.arguments["year"]}',
+                                    'karya': karya
+                                  });
                                 },
                               ),
                               Divider(),
