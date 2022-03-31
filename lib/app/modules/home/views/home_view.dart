@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:repository_mobile_unsoed/app/routes/app_pages.dart';
-
 import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
@@ -325,47 +324,6 @@ class HomeView extends GetView<HomeController> {
             SizedBox(
               height: 16,
             ),
-
-            // SizedBox(height: 12,),
-            // Container(
-            //   margin: EdgeInsets.only(left: 4),
-            //   child: Text(
-            //     'By Subject',
-            //     style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-            //   ),
-            // ),
-            // Container(
-            //   height: 200,
-            //   child: ListView.builder(
-            //     scrollDirection: Axis.horizontal,
-            //     itemCount: 20,
-            //     itemBuilder: (context, index) {
-            //       return InkWell(
-            //         child: Card(
-            //           elevation: 4,
-            //           child: Column(
-            //             children: [
-            //               Image(
-            //                 height: 120,
-            //                 width: 120,
-            //                 image: AssetImage('folder.png'),
-            //               ),
-            //               Container(
-            //                 width: 120,
-            //                 child: Text(
-            //                   'A134 Agricultural experiment stations',
-            //                   textAlign: TextAlign.center,
-            //                   overflow: TextOverflow.ellipsis,
-            //                   maxLines: 3,
-            //                 ),
-            //               ),
-            //             ],
-            //           ),
-            //         ),
-            //       );
-            //     },
-            //   ),
-            // ),
           ],
         ),
       ),

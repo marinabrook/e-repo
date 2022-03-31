@@ -4,7 +4,6 @@ import 'package:flutter_linkify/flutter_linkify.dart';
 import 'package:get/get.dart';
 import 'package:repository_mobile_unsoed/app/routes/app_pages.dart';
 import 'package:url_launcher/url_launcher.dart';
-
 import '../controllers/karyailmiah_controller.dart';
 
 class KaryailmiahView extends GetView<KaryailmiahController> {
@@ -242,15 +241,6 @@ class KaryailmiahView extends GetView<KaryailmiahController> {
                     style: TextStyle(overflow: TextOverflow.ellipsis),
                   ),
                   trailing: Text("Restricted to Staff Only"),
-                  // onTap: () async {
-                  //   String link =
-                  //       "https://repository.unsoed.ac.id/${eprintid}/${listdoc[index]["pos"]}/${listdoc[index]["main"]}";
-                  //   if (await canLaunch(link)) {
-                  //     await launch(link);
-                  //   } else {
-                  //     throw 'Could not launch $link';
-                  //   }
-                  // },
                 );
               }
             },
@@ -321,69 +311,6 @@ class KaryailmiahView extends GetView<KaryailmiahController> {
               ),
             ],
           ),
-          // Row(
-          //   mainAxisAlignment: MainAxisAlignment.start,
-          //   crossAxisAlignment: CrossAxisAlignment.center,
-          //   children: [
-          //     Text(
-          //       "Subjects: ",
-          //       style: TextStyle(
-          //         fontSize: 16,
-          //         fontWeight: FontWeight.bold,
-          //       ),
-          //     ),
-          //     Flexible(
-          //       child: Text(
-          //         "P > P461 Poverty",
-          //         style: TextStyle(
-          //           fontSize: 16,
-          //         ),
-          //       ),
-          //     ),
-          //   ],
-          // ),
-          // Row(
-          //   mainAxisAlignment: MainAxisAlignment.start,
-          //   crossAxisAlignment: CrossAxisAlignment.center,
-          //   children: [
-          //     Text(
-          //       "Divisions:	",
-          //       style: TextStyle(
-          //         fontSize: 16,
-          //         fontWeight: FontWeight.bold,
-          //       ),
-          //     ),
-          //     Flexible(
-          //       child: Text(
-          //         divisi.toString(),
-          //         style: TextStyle(
-          //           fontSize: 16,
-          //         ),
-          //       ),
-          //     ),
-          //   ],
-          // ),
-          // Row(
-          //   mainAxisAlignment: MainAxisAlignment.start,
-          //   crossAxisAlignment: CrossAxisAlignment.center,
-          //   children: [
-          //     Text(
-          //       "Depositing User: ",
-          //       style: TextStyle(
-          //         fontSize: 16,
-          //         fontWeight: FontWeight.bold,
-          //       ),
-          //     ),
-          //     Flexible(
-          //       child: Text(
-          //         userid.toString(),
-          //         style: TextStyle(
-          //           fontSize: 16,
-          //         ),
-          //       ),
-          //     ),
-          //   ],
-          // ),
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,

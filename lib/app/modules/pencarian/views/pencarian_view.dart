@@ -1,17 +1,13 @@
 // ignore_for_file: invalid_use_of_protected_member
 
-import 'package:async/async.dart';
 import 'package:draggable_scrollbar/draggable_scrollbar.dart';
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
-
 import '../../../routes/app_pages.dart';
 import '../controllers/pencarian_controller.dart';
 
 class PencarianView extends GetView<PencarianController> {
   final ScrollController _scrollController = ScrollController();
-  final AsyncMemoizer dCMemorizer = AsyncMemoizer();
 
   @override
   Widget build(BuildContext context) {

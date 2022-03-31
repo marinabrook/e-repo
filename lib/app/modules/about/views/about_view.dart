@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 import 'package:repository_mobile_unsoed/app/routes/app_pages.dart';
-
 import '../controllers/about_controller.dart';
 
 class AboutView extends GetView<AboutController> {
@@ -14,10 +12,11 @@ class AboutView extends GetView<AboutController> {
         centerTitle: true,
         actions: [
           IconButton(
-              onPressed: () {
-                Get.back();
-              },
-              icon: Icon(Icons.arrow_back))
+            onPressed: () {
+              Get.back();
+            },
+            icon: Icon(Icons.arrow_back),
+          )
         ],
       ),
       drawer: ListView(

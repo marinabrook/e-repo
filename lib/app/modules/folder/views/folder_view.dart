@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 import 'package:repository_mobile_unsoed/app/routes/app_pages.dart';
-
 import '../controllers/folder_controller.dart';
 
 class FolderView extends GetView<FolderController> {
@@ -16,10 +14,11 @@ class FolderView extends GetView<FolderController> {
         centerTitle: true,
         actions: [
           IconButton(
-              onPressed: () {
-                Get.back();
-              },
-              icon: Icon(Icons.arrow_back))
+            onPressed: () {
+              Get.back();
+            },
+            icon: Icon(Icons.arrow_back),
+          )
         ],
       ),
       drawer: ListView(
