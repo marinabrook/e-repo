@@ -292,7 +292,8 @@ class KaryailmiahView extends GetView<KaryailmiahController> {
             shrinkWrap: true,
             itemCount: listdoc.length,
             itemBuilder: (context, index) {
-              if (listdoc[index]["security"] == "public") {
+              if (listdoc[index]["security"] == "public" &&
+                  listdoc[index]["format"] == "pdf") {
                 return ListTile(
                   leading: Icon(Icons.picture_as_pdf),
                   title: Text('PDF (${listdoc[index]["formatdesc"]})'),
@@ -310,7 +311,8 @@ class KaryailmiahView extends GetView<KaryailmiahController> {
                     }
                   },
                 );
-              } else {
+              } else if (listdoc[index]["security"] == "staffonly" &&
+                  listdoc[index]["format"] == "pdf") {
                 return ListTile(
                   leading: Icon(Icons.picture_as_pdf),
                   title: Text('PDF (${listdoc[index]["formatdesc"]})'),
@@ -320,6 +322,8 @@ class KaryailmiahView extends GetView<KaryailmiahController> {
                   ),
                   trailing: Text("Restricted to Staff Only"),
                 );
+              } else {
+                return Container();
               }
             },
           ),
