@@ -34,7 +34,9 @@ class AboutView extends GetView<AboutController> {
             title: Text('Home'),
           ),
           ListTile(
-            onTap: () {},
+            onTap: () {
+              Get.offNamed(Routes.FAVORITE);
+            },
             leading: Icon(Icons.star),
             title: Text('Favorite'),
           ),

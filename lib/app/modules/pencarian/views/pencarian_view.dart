@@ -40,27 +40,29 @@ class PencarianView extends GetView<PencarianController> {
               title: Text('Home'),
             ),
             ListTile(
-              onTap: () {},
+              onTap: () {
+                Get.offNamed(Routes.FAVORITE);
+              },
               leading: Icon(Icons.star),
               title: Text('Favorite'),
             ),
             ListTile(
               onTap: () {
-                Get.toNamed(Routes.ABOUT);
+                Get.offNamed(Routes.ABOUT);
               },
               leading: Icon(Icons.person_sharp),
               title: Text('About'),
             ),
             ListTile(
               onTap: () {
-                Get.toNamed(Routes.PETUNJUK);
+                Get.offNamed(Routes.PETUNJUK);
               },
               leading: Icon(Icons.quiz_rounded),
               title: Text('Petunjuk Unggah Mandiri'),
             ),
             ListTile(
               onTap: () {
-                Get.toNamed(Routes.FAQ);
+                Get.offNamed(Routes.FAQ);
               },
               leading: Icon(Icons.question_answer),
               title: Text('FAQ'),

@@ -4,6 +4,8 @@ import 'package:repository_mobile_unsoed/app/modules/about/bindings/about_bindin
 import 'package:repository_mobile_unsoed/app/modules/about/views/about_view.dart';
 import 'package:repository_mobile_unsoed/app/modules/faq/bindings/faq_binding.dart';
 import 'package:repository_mobile_unsoed/app/modules/faq/views/faq_view.dart';
+import 'package:repository_mobile_unsoed/app/modules/favorite/bindings/favorite_binding.dart';
+import 'package:repository_mobile_unsoed/app/modules/favorite/views/favorite_view.dart';
 import 'package:repository_mobile_unsoed/app/modules/folder/bindings/folder_binding.dart';
 import 'package:repository_mobile_unsoed/app/modules/folder/views/folder_view.dart';
 import 'package:repository_mobile_unsoed/app/modules/home/bindings/home_binding.dart';
@@ -64,6 +66,11 @@ class AppPages {
       name: _Paths.PENCARIAN,
       page: () => PencarianView(),
       binding: PencarianBinding(),
+    ),
+    GetPage(
+      name: _Paths.FAVORITE,
+      page: () => FavoriteView(),
+      binding: FavoriteBinding(),
     ),
   ];
 }

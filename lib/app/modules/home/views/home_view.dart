@@ -56,7 +56,10 @@ class HomeView extends GetView<HomeController> {
               title: Text('Home'),
             ),
             ListTile(
-              onTap: () {},
+              onTap: () {
+                Get.back();
+                Get.toNamed(Routes.FAVORITE);
+              },
               leading: Icon(Icons.star),
               title: Text('Favorite'),
             ),
@@ -168,7 +171,7 @@ class HomeView extends GetView<HomeController> {
               ),
             ),
             SizedBox(
-              height: 16,
+              height: 24,
             ),
             Container(
               height: 180,
@@ -181,7 +184,12 @@ class HomeView extends GetView<HomeController> {
                       Get.snackbar(
                         "Fitur ini belum tersedia.",
                         "Silahkan gunakan versi web ^_^",
-                        snackPosition: SnackPosition.BOTTOM,
+                        snackPosition: SnackPosition.TOP,
+                        margin: EdgeInsets.only(
+                          top: MediaQuery.of(context).size.height * 0.07,
+                          left: MediaQuery.of(context).size.width * 0.03,
+                          right: MediaQuery.of(context).size.width * 0.03,
+                        ),
                         duration: Duration(seconds: 1, milliseconds: 500),
                         animationDuration: Duration(milliseconds: 500),
                       );
@@ -215,7 +223,12 @@ class HomeView extends GetView<HomeController> {
                       Get.snackbar(
                         "Fitur ini belum tersedia.",
                         "Silahkan gunakan versi web ^_^",
-                        snackPosition: SnackPosition.BOTTOM,
+                        snackPosition: SnackPosition.TOP,
+                        margin: EdgeInsets.only(
+                          top: MediaQuery.of(context).size.height * 0.07,
+                          left: MediaQuery.of(context).size.width * 0.03,
+                          right: MediaQuery.of(context).size.width * 0.03,
+                        ),
                         duration: Duration(seconds: 1, milliseconds: 500),
                         animationDuration: Duration(milliseconds: 500),
                       );
@@ -260,7 +273,12 @@ class HomeView extends GetView<HomeController> {
                       Get.snackbar(
                         "Fitur ini belum tersedia.",
                         "Silahkan gunakan versi web ^_^",
-                        snackPosition: SnackPosition.BOTTOM,
+                        snackPosition: SnackPosition.TOP,
+                        margin: EdgeInsets.only(
+                          top: MediaQuery.of(context).size.height * 0.07,
+                          left: MediaQuery.of(context).size.width * 0.03,
+                          right: MediaQuery.of(context).size.width * 0.03,
+                        ),
                         duration: Duration(seconds: 1, milliseconds: 500),
                         animationDuration: Duration(milliseconds: 500),
                       );

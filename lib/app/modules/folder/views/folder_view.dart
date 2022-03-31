@@ -36,12 +36,16 @@ class FolderView extends GetView<FolderController> {
             title: Text('Home'),
           ),
           ListTile(
-            onTap: () {},
+            onTap: () {
+              Get.back();
+              Get.toNamed(Routes.FAVORITE);
+            },
             leading: Icon(Icons.star),
             title: Text('Favorite'),
           ),
           ListTile(
             onTap: () {
+              Get.back();
               Get.toNamed(Routes.ABOUT);
             },
             leading: Icon(Icons.person_sharp),
@@ -49,6 +53,7 @@ class FolderView extends GetView<FolderController> {
           ),
           ListTile(
             onTap: () {
+              Get.back();
               Get.toNamed(Routes.PETUNJUK);
             },
             leading: Icon(Icons.quiz_rounded),
@@ -56,6 +61,7 @@ class FolderView extends GetView<FolderController> {
           ),
           ListTile(
             onTap: () {
+              Get.back();
               Get.toNamed(Routes.FAQ);
             },
             leading: Icon(Icons.question_answer),
@@ -63,6 +69,7 @@ class FolderView extends GetView<FolderController> {
           ),
           ListTile(
             onTap: () {
+              Get.back();
               Get.toNamed(Routes.PENCARIAN);
             },
             leading: Icon(Icons.search_outlined),

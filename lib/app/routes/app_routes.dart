@@ -12,6 +12,7 @@ abstract class Routes {
   static const LISTKARYAILMIAH = _Paths.LISTKARYAILMIAH;
   static const FOLDER = _Paths.FOLDER;
   static const PENCARIAN = _Paths.PENCARIAN;
+  static const FAVORITE = _Paths.FAVORITE;
 }
 
 abstract class _Paths {
@@ -23,4 +24,5 @@ abstract class _Paths {
   static const LISTKARYAILMIAH = '/listkaryailmiah';
   static const FOLDER = '/folder';
   static const PENCARIAN = '/pencarian';
+  static const FAVORITE = '/favorite';
 }

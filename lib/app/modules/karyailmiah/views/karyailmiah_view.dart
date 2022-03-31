@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_linkify/flutter_linkify.dart';
-
 import 'package:get/get.dart';
 import 'package:repository_mobile_unsoed/app/routes/app_pages.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -46,10 +45,11 @@ class KaryailmiahView extends GetView<KaryailmiahController> {
         centerTitle: true,
         actions: [
           IconButton(
-              onPressed: () {
-                Get.back();
-              },
-              icon: Icon(Icons.arrow_back))
+            onPressed: () {
+              Get.back();
+            },
+            icon: Icon(Icons.arrow_back),
+          )
         ],
       ),
       drawer: ListView(
@@ -67,12 +67,16 @@ class KaryailmiahView extends GetView<KaryailmiahController> {
             title: Text('Home'),
           ),
           ListTile(
-            onTap: () {},
+            onTap: () {
+              Get.back();
+              Get.toNamed(Routes.FAVORITE);
+            },
             leading: Icon(Icons.star),
             title: Text('Favorite'),
           ),
           ListTile(
             onTap: () {
+              Get.back();
               Get.toNamed(Routes.ABOUT);
             },
             leading: Icon(Icons.person_sharp),
@@ -80,6 +84,7 @@ class KaryailmiahView extends GetView<KaryailmiahController> {
           ),
           ListTile(
             onTap: () {
+              Get.back();
               Get.toNamed(Routes.PETUNJUK);
             },
             leading: Icon(Icons.quiz_rounded),
@@ -87,13 +92,17 @@ class KaryailmiahView extends GetView<KaryailmiahController> {
           ),
           ListTile(
             onTap: () {
+              Get.back();
               Get.toNamed(Routes.FAQ);
             },
             leading: Icon(Icons.question_answer),
             title: Text('FAQ'),
           ),
           ListTile(
-            onTap: () {},
+            onTap: () {
+              Get.back();
+              Get.toNamed(Routes.PENCARIAN);
+            },
             leading: Icon(Icons.search_outlined),
             title: Text('Browse'),
           ),
@@ -181,6 +190,80 @@ class KaryailmiahView extends GetView<KaryailmiahController> {
               style: TextStyle(
                 fontSize: 14.4,
               ),
+            ),
+          ),
+          SizedBox(
+            height: 12,
+          ),
+          Container(
+            width: MediaQuery.of(context).size.width,
+            height: 42,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  "Favorite",
+                  style: TextStyle(
+                    fontSize: 14.4,
+                  ),
+                ),
+                SizedBox(
+                  width: 12,
+                ),
+                Obx(() {
+                  if (controller.isfavorited == false) {
+                    return IconButton(
+                      alignment: Alignment.center,
+                      iconSize: 40,
+                      padding: EdgeInsets.all(0),
+                      onPressed: () {
+                        controller.savetofavorite(karya);
+                        controller.checkfav();
+                        Get.snackbar(
+                          "Success.",
+                          "Successfully added this item to your favorites",
+                          snackPosition: SnackPosition.TOP,
+                          margin: EdgeInsets.only(
+                            top: MediaQuery.of(context).size.height * 0.07,
+                            left: MediaQuery.of(context).size.width * 0.03,
+                            right: MediaQuery.of(context).size.width * 0.03,
+                          ),
+                          duration: Duration(seconds: 2),
+                          animationDuration: Duration(milliseconds: 500),
+                        );
+                      },
+                      icon: Icon(
+                        Icons.star_border,
+                      ),
+                    );
+                  } else {
+                    return IconButton(
+                      alignment: Alignment.center,
+                      iconSize: 40,
+                      padding: EdgeInsets.all(0),
+                      onPressed: () {
+                        Get.snackbar(
+                          "Favorited.",
+                          "This item has been added to your favorites",
+                          snackPosition: SnackPosition.TOP,
+                          margin: EdgeInsets.only(
+                            top: MediaQuery.of(context).size.height * 0.07,
+                            left: MediaQuery.of(context).size.width * 0.03,
+                            right: MediaQuery.of(context).size.width * 0.03,
+                          ),
+                          duration: Duration(seconds: 2),
+                          animationDuration: Duration(milliseconds: 500),
+                        );
+                      },
+                      icon: Icon(
+                        Icons.star,
+                        color: Colors.yellow,
+                      ),
+                    );
+                  }
+                }),
+              ],
             ),
           ),
           SizedBox(
