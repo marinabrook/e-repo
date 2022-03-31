@@ -28,5 +28,6 @@ flutter:
     - assets/file.png
     - assets/person.png
     - assets/thumvid.png
+    - assets/logounsoed.png
   uses-material-design: true
 

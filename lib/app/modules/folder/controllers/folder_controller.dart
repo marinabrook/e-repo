@@ -1,7 +1,6 @@
 import 'package:get/get.dart';
 
 class FolderController extends GetxController {
-  //TODO: Implement FolderController
 
   final count = 0.obs;
   @override

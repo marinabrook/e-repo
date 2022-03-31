@@ -3,14 +3,16 @@ import 'package:get/get.dart';
 import 'package:repository_mobile_unsoed/app/providers/karyailmiahP.dart';
 
 class PencarianController extends GetxController with StateMixin {
-  //TODO: Implement PencarianController
   final searchFormKey2 = GlobalKey<FormState>();
   var listkarya = [].obs;
   final searchController = TextEditingController();
   var serres = "".obs;
 
   void fetchsearch(kata) async {
-    change(null, status: RxStatus.loading());
+    if (kata == null) {
+      change(null, status: RxStatus.empty());
+    } else {
+      change(null, status: RxStatus.loading());
     var splittedtext = kata.split(" ");
     var combinedtext;
     for (int i = 0; i < splittedtext.length; i++) {
@@ -32,8 +34,9 @@ class PencarianController extends GetxController with StateMixin {
         }
       },
     );
+    }
+    
   }
-
   final count = 0.obs;
   @override
   void onInit() {
@@ -49,10 +52,11 @@ class PencarianController extends GetxController with StateMixin {
   @override
   void onClose() {}
 
-  void search(kata){
-    if (searchFormKey2.currentState!.validate()){
+  void search(kata) {
+    if (searchFormKey2.currentState!.validate()) {
       fetchsearch(kata);
     }
   }
+
   void increment() => count.value++;
 }

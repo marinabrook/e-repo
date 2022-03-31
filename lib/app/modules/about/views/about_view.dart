@@ -16,7 +16,6 @@ class AboutView extends GetView<AboutController> {
           IconButton(
               onPressed: () {
                 Get.back();
-                Get.back();
               },
               icon: Icon(Icons.arrow_back))
         ],
@@ -24,8 +23,9 @@ class AboutView extends GetView<AboutController> {
       drawer: ListView(
         children: [
           UserAccountsDrawerHeader(
-            accountName: Text('accountName'),
-            accountEmail: Text('accountEmail'),
+            currentAccountPicture: Image.asset('assets/logounsoed.png'),
+            accountName: Text('Repository Mobile'),
+            accountEmail: Text('Universitas Jenderal Soedirman'),
           ),
           ListTile(
             onTap: () {
@@ -68,10 +68,10 @@ class AboutView extends GetView<AboutController> {
             title: Text('Browse'),
           ),
           Divider(),
-           ListTile(
-            onTap: () {},
+          ListTile(
             leading: Icon(Icons.login),
             title: Text('Login'),
+            trailing: Icon(Icons.lock),
           ),
         ],
       ),

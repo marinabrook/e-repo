@@ -1,3 +1,5 @@
+// ignore_for_file: invalid_use_of_protected_member
+
 import 'package:async/async.dart';
 import 'package:draggable_scrollbar/draggable_scrollbar.dart';
 import 'package:flutter/material.dart';
@@ -19,12 +21,20 @@ class PencarianView extends GetView<PencarianController> {
         appBar: AppBar(
           title: Text('Browse'),
           centerTitle: true,
+          actions: [
+            IconButton(
+                onPressed: () {
+                  Get.back();
+                },
+                icon: Icon(Icons.arrow_back))
+          ],
         ),
         drawer: ListView(
           children: [
             UserAccountsDrawerHeader(
-              accountName: Text('accountName'),
-              accountEmail: Text('accountEmail'),
+              currentAccountPicture: Image.asset('assets/logounsoed.png'),
+              accountName: Text('Repository Mobile'),
+              accountEmail: Text('Universitas Jenderal Soedirman'),
             ),
             ListTile(
               onTap: () {
@@ -68,9 +78,9 @@ class PencarianView extends GetView<PencarianController> {
             ),
             Divider(),
             ListTile(
-              onTap: () {},
               leading: Icon(Icons.login),
               title: Text('Login'),
+              trailing: Icon(Icons.lock),
             ),
           ],
         ),
@@ -232,7 +242,7 @@ class PencarianView extends GetView<PencarianController> {
                   );
                 },
                 onEmpty: Center(
-                  child: Text("Tidak ada Data"),
+                  child: Text(""),
                 ),
               ),
             ),

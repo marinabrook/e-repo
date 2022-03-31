@@ -1,7 +1,4 @@
 import 'package:get/get.dart';
-import 'package:get/get_rx/src/rx_types/rx_types.dart';
-import 'package:http/http.dart';
-import 'package:repository_mobile_unsoed/app/modules/models/karyailmiahM.dart';
 import 'package:repository_mobile_unsoed/app/providers/karyailmiahP.dart';
 
 class ListkaryailmiahController extends GetxController with StateMixin {

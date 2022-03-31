@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:repository_mobile_unsoed/app/modules/listkaryailmiah/controllers/listkaryailmiah_controller.dart';
 import 'package:repository_mobile_unsoed/app/routes/app_pages.dart';
 
 import '../controllers/home_controller.dart';
@@ -34,14 +33,21 @@ class HomeView extends GetView<HomeController> {
           title: Text('REPOSITORY UNSOED'),
           centerTitle: true,
           actions: [
-            IconButton(onPressed: () {}, icon: Icon(Icons.search_outlined))
+            IconButton(
+              onPressed: () {
+                Get.toNamed(Routes.PENCARIAN);
+              },
+              icon: Icon(Icons.search_outlined),
+            )
           ],
         ),
+        drawerScrimColor: Colors.white,
         drawer: ListView(
           children: [
             UserAccountsDrawerHeader(
-              accountName: Text('accountName'),
-              accountEmail: Text('accountEmail'),
+              currentAccountPicture: Image.asset('assets/logounsoed.png'),
+              accountName: Text('Repository Mobile'),
+              accountEmail: Text('Universitas Jenderal Soedirman'),
             ),
             ListTile(
               onTap: () {
@@ -57,6 +63,7 @@ class HomeView extends GetView<HomeController> {
             ),
             ListTile(
               onTap: () {
+                Get.back();
                 Get.toNamed(Routes.ABOUT);
               },
               leading: Icon(Icons.person_sharp),
@@ -64,6 +71,7 @@ class HomeView extends GetView<HomeController> {
             ),
             ListTile(
               onTap: () {
+                Get.back();
                 Get.toNamed(Routes.PETUNJUK);
               },
               leading: Icon(Icons.quiz_rounded),
@@ -71,6 +79,7 @@ class HomeView extends GetView<HomeController> {
             ),
             ListTile(
               onTap: () {
+                Get.back();
                 Get.toNamed(Routes.FAQ);
               },
               leading: Icon(Icons.question_answer),
@@ -78,6 +87,7 @@ class HomeView extends GetView<HomeController> {
             ),
             ListTile(
               onTap: () {
+                Get.back();
                 Get.toNamed(Routes.PENCARIAN);
               },
               leading: Icon(Icons.search_outlined),
@@ -85,13 +95,12 @@ class HomeView extends GetView<HomeController> {
             ),
             Divider(),
             ListTile(
-              onTap: () {},
               leading: Icon(Icons.login),
               title: Text('Login'),
+              trailing: Icon(Icons.lock),
             ),
           ],
         ),
-        drawerScrimColor: Colors.white,
         body: ListView(
           shrinkWrap: true,
           padding: EdgeInsets.symmetric(horizontal: 4, vertical: 12),
@@ -141,7 +150,7 @@ class HomeView extends GetView<HomeController> {
                               width: 1.0,
                             ),
                           ),
-                          contentPadding: EdgeInsets.symmetric(horizontal: 12)
+                          contentPadding: EdgeInsets.symmetric(horizontal: 12),
                         ),
                       ),
                     ),

@@ -17,7 +17,6 @@ class FaqView extends GetView<FaqController> {
           IconButton(
               onPressed: () {
                 Get.back();
-                Get.back();
               },
               icon: Icon(Icons.arrow_back))
         ],
@@ -25,8 +24,9 @@ class FaqView extends GetView<FaqController> {
       drawer: ListView(
         children: [
           UserAccountsDrawerHeader(
-            accountName: Text('accountName'),
-            accountEmail: Text('accountEmail'),
+            currentAccountPicture: Image.asset('assets/logounsoed.png'),
+            accountName: Text('Repository Mobile'),
+            accountEmail: Text('Universitas Jenderal Soedirman'),
           ),
           ListTile(
             onTap: () {
@@ -69,10 +69,10 @@ class FaqView extends GetView<FaqController> {
             title: Text('Browse'),
           ),
           Divider(),
-           ListTile(
-            onTap: () {},
+          ListTile(
             leading: Icon(Icons.login),
             title: Text('Login'),
+            trailing: Icon(Icons.lock),
           ),
         ],
       ),
@@ -297,18 +297,22 @@ class FaqView extends GetView<FaqController> {
             width: MediaQuery.of(context).size.width,
             child: RichText(
               text: TextSpan(
-                style: TextStyle(
-                  fontSize: 14.4,
-                  color: Colors.black
-                ),
-                children: <TextSpan>[
-                  TextSpan(text: "File legalitas berisikan "),
-                  TextSpan(text: "Halaman Pengesahan",style: TextStyle(fontWeight: FontWeight.bold)),
-                  TextSpan(text: ", Motto, Persembahan, Kata Pengantar, Daftar Isi Daftar Tabel, Daftar Gambar, "),
-                  TextSpan(text: "Halaman Pernyataan Orisinalitas",style: TextStyle(fontWeight: FontWeight.bold)),
-                  TextSpan(text: ". (Lihat Panduan Unggah Mandiri pada KETENTUAN FILE halaman 4 dan 5.)"),
-                ]
-              ),
+                  style: TextStyle(fontSize: 14.4, color: Colors.black),
+                  children: <TextSpan>[
+                    TextSpan(text: "File legalitas berisikan "),
+                    TextSpan(
+                        text: "Halaman Pengesahan",
+                        style: TextStyle(fontWeight: FontWeight.bold)),
+                    TextSpan(
+                        text:
+                            ", Motto, Persembahan, Kata Pengantar, Daftar Isi Daftar Tabel, Daftar Gambar, "),
+                    TextSpan(
+                        text: "Halaman Pernyataan Orisinalitas",
+                        style: TextStyle(fontWeight: FontWeight.bold)),
+                    TextSpan(
+                        text:
+                            ". (Lihat Panduan Unggah Mandiri pada KETENTUAN FILE halaman 4 dan 5.)"),
+                  ]),
             ),
           ),
           SizedBox(
@@ -320,18 +324,18 @@ class FaqView extends GetView<FaqController> {
             width: MediaQuery.of(context).size.width,
             child: RichText(
               text: TextSpan(
-                style: TextStyle(
-                  fontSize: 14.4,
-                  color: Colors.black
-                ),
-                children: <TextSpan>[
-                  TextSpan(text: "Halaman yang harus dipindai/"),
-                  TextSpan(text: "scanning ", style: TextStyle(fontStyle: FontStyle.italic)),
-                  TextSpan(text: "meliputi "),
-                  TextSpan(text: "Halaman Pengesahan dan Pernyataan Orisinalitas ",style: TextStyle(fontWeight: FontWeight.bold)),
-                  TextSpan(text: "dengan ketentuan:"),
-                ]
-              ),
+                  style: TextStyle(fontSize: 14.4, color: Colors.black),
+                  children: <TextSpan>[
+                    TextSpan(text: "Halaman yang harus dipindai/"),
+                    TextSpan(
+                        text: "scanning ",
+                        style: TextStyle(fontStyle: FontStyle.italic)),
+                    TextSpan(text: "meliputi "),
+                    TextSpan(
+                        text: "Halaman Pengesahan dan Pernyataan Orisinalitas ",
+                        style: TextStyle(fontWeight: FontWeight.bold)),
+                    TextSpan(text: "dengan ketentuan:"),
+                  ]),
             ),
           ),
           SizedBox(

@@ -19,7 +19,6 @@ class PetunjukView extends GetView<PetunjukController> {
           IconButton(
               onPressed: () {
                 Get.back();
-                Get.back();
               },
               icon: Icon(Icons.arrow_back))
         ],
@@ -27,8 +26,9 @@ class PetunjukView extends GetView<PetunjukController> {
       drawer: ListView(
         children: [
           UserAccountsDrawerHeader(
-            accountName: Text('accountName'),
-            accountEmail: Text('accountEmail'),
+            currentAccountPicture: Image.asset('assets/logounsoed.png'),
+            accountName: Text('Repository Mobile'),
+            accountEmail: Text('Universitas Jenderal Soedirman'),
           ),
           ListTile(
             onTap: () {
@@ -72,9 +72,9 @@ class PetunjukView extends GetView<PetunjukController> {
           ),
           Divider(),
           ListTile(
-            onTap: () {},
             leading: Icon(Icons.login),
             title: Text('Login'),
+            trailing: Icon(Icons.lock),
           ),
         ],
       ),
@@ -244,8 +244,7 @@ class PetunjukView extends GetView<PetunjukController> {
               width: 400,
               child: InkWell(
                   onTap: () async {
-                    String link =
-                        "https://youtu.be/KqJUhIqoXpM";
+                    String link = "https://youtu.be/KqJUhIqoXpM";
                     if (await canLaunch(link)) {
                       await launch(link);
                     } else {

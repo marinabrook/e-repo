@@ -38,8 +38,6 @@ class KaryailmiahView extends GetView<KaryailmiahController> {
     for (int i = 0; i < banyaksub; i++) {
       listsub.insert(i, karya["subjects"][i]);
     }
-    var divisi = karya["divisions"];
-    var userid = karya["userid"];
     var datedep = karya["datestamp"];
     var datelas = karya["lastmod"];
     var uri = karya["uri"];
@@ -48,14 +46,19 @@ class KaryailmiahView extends GetView<KaryailmiahController> {
         title: Text('${Get.arguments["year"]}'),
         centerTitle: true,
         actions: [
-          IconButton(onPressed: () {}, icon: Icon(Icons.search_outlined))
+          IconButton(
+              onPressed: () {
+                Get.back();
+              },
+              icon: Icon(Icons.arrow_back))
         ],
       ),
       drawer: ListView(
         children: [
           UserAccountsDrawerHeader(
-            accountName: Text('accountName'),
-            accountEmail: Text('accountEmail'),
+            currentAccountPicture: Image.asset('assets/logounsoed.png'),
+            accountName: Text('Repository Mobile'),
+            accountEmail: Text('Universitas Jenderal Soedirman'),
           ),
           ListTile(
             onTap: () {
@@ -97,9 +100,9 @@ class KaryailmiahView extends GetView<KaryailmiahController> {
           ),
           Divider(),
           ListTile(
-            onTap: () {},
             leading: Icon(Icons.login),
             title: Text('Login'),
+            trailing: Icon(Icons.lock),
           ),
         ],
       ),
@@ -448,6 +451,27 @@ class KaryailmiahView extends GetView<KaryailmiahController> {
                     fontSize: 16,
                   ),
                   text: uri.toString(),
+                ),
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(
+                "Institution:	",
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Flexible(
+                child: Text(
+                  institution.toString(),
+                  style: TextStyle(
+                    fontSize: 16,
+                  ),
                 ),
               ),
             ],

@@ -1,9 +1,10 @@
+// ignore_for_file: invalid_use_of_protected_member
+
 import 'package:async/async.dart';
 import 'package:draggable_scrollbar/draggable_scrollbar.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:repository_mobile_unsoed/app/modules/models/karyailmiahM.dart';
 import 'package:repository_mobile_unsoed/app/routes/app_pages.dart';
 
 import '../controllers/listkaryailmiah_controller.dart';
@@ -21,14 +22,19 @@ class ListkaryailmiahView extends GetView<ListkaryailmiahController> {
           title: Text('${Get.arguments["year"]}'),
           centerTitle: true,
           actions: [
-            IconButton(onPressed: () {}, icon: Icon(Icons.search_outlined))
+            IconButton(
+                onPressed: () {
+                  Get.back();
+                },
+                icon: Icon(Icons.arrow_back))
           ],
         ),
         drawer: ListView(
           children: [
             UserAccountsDrawerHeader(
-              accountName: Text('accountName'),
-              accountEmail: Text('accountEmail'),
+              currentAccountPicture: Image.asset('assets/logounsoed.png'),
+              accountName: Text('Repository Mobile'),
+              accountEmail: Text('Universitas Jenderal Soedirman'),
             ),
             ListTile(
               onTap: () {
@@ -70,9 +76,9 @@ class ListkaryailmiahView extends GetView<ListkaryailmiahController> {
             ),
             Divider(),
             ListTile(
-              onTap: () {},
               leading: Icon(Icons.login),
               title: Text('Login'),
+              trailing: Icon(Icons.lock),
             ),
           ],
         ),
@@ -238,8 +244,7 @@ class ListkaryailmiahView extends GetView<ListkaryailmiahController> {
                                 subtitle: Text(
                                     '${nambel}, ${namdep} | ${date} | ${thesistype} ${type} | ${institution}'),
                                 onTap: () {
-                                  Get.toNamed(Routes.KARYAILMIAH,
-                                      arguments: {
+                                  Get.toNamed(Routes.KARYAILMIAH, arguments: {
                                     'year': '${Get.arguments["year"]}',
                                     'bred':
                                         '${Get.arguments["bred"]} > ${Get.arguments["year"]}',

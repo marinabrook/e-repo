@@ -6,8 +6,8 @@ import 'package:repository_mobile_unsoed/app/routes/app_pages.dart';
 import '../controllers/folder_controller.dart';
 
 class FolderView extends GetView<FolderController> {
-  var bred = Get.arguments["bred"];
-  var listyear = Get.arguments["allyear"];
+  final bred = Get.arguments["bred"];
+  final listyear = Get.arguments["allyear"];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,15 +17,17 @@ class FolderView extends GetView<FolderController> {
         actions: [
           IconButton(
               onPressed: () {
+                Get.back();
               },
-              icon: Icon(Icons.search_outlined))
+              icon: Icon(Icons.arrow_back))
         ],
       ),
       drawer: ListView(
         children: [
           UserAccountsDrawerHeader(
-            accountName: Text('accountName'),
-            accountEmail: Text('accountEmail'),
+            currentAccountPicture: Image.asset('assets/logounsoed.png'),
+            accountName: Text('Repository Mobile'),
+            accountEmail: Text('Universitas Jenderal Soedirman'),
           ),
           ListTile(
             onTap: () {
@@ -69,9 +71,9 @@ class FolderView extends GetView<FolderController> {
           ),
           Divider(),
           ListTile(
-            onTap: () {},
             leading: Icon(Icons.login),
             title: Text('Login'),
+            trailing: Icon(Icons.lock),
           ),
         ],
       ),
@@ -92,7 +94,8 @@ class FolderView extends GetView<FolderController> {
           GridView.builder(
             shrinkWrap: true,
             physics: NeverScrollableScrollPhysics(),
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3), 
+            gridDelegate:
+                SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
             itemCount: listyear.length,
             itemBuilder: (context, index) {
               return InkWell(
@@ -129,7 +132,8 @@ class FolderView extends GetView<FolderController> {
                   ),
                 ),
               );
-            },),
+            },
+          ),
           SizedBox(
             height: 12,
           )
