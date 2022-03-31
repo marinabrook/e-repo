@@ -68,40 +68,35 @@ class KaryailmiahView extends GetView<KaryailmiahController> {
           ),
           ListTile(
             onTap: () {
-              Get.back();
-              Get.toNamed(Routes.FAVORITE);
+              Get.offNamed(Routes.FAVORITE);
             },
             leading: Icon(Icons.star),
             title: Text('Favorite'),
           ),
           ListTile(
             onTap: () {
-              Get.back();
-              Get.toNamed(Routes.ABOUT);
+              Get.offNamed(Routes.ABOUT);
             },
             leading: Icon(Icons.person_sharp),
             title: Text('About'),
           ),
           ListTile(
             onTap: () {
-              Get.back();
-              Get.toNamed(Routes.PETUNJUK);
+              Get.offNamed(Routes.PETUNJUK);
             },
             leading: Icon(Icons.quiz_rounded),
             title: Text('Petunjuk Unggah Mandiri'),
           ),
           ListTile(
             onTap: () {
-              Get.back();
-              Get.toNamed(Routes.FAQ);
+              Get.offNamed(Routes.FAQ);
             },
             leading: Icon(Icons.question_answer),
             title: Text('FAQ'),
           ),
           ListTile(
             onTap: () {
-              Get.back();
-              Get.toNamed(Routes.PENCARIAN);
+              Get.offNamed(Routes.PENCARIAN);
             },
             leading: Icon(Icons.search_outlined),
             title: Text('Browse'),

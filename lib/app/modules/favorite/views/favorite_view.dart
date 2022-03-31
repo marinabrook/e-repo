@@ -161,8 +161,8 @@ class FavoriteView extends GetView<FavoriteController> {
                                       '${nambel}, ${namdep} | ${date} | ${thesistype} ${type} | ${institution}'),
                                   onTap: () {
                                     Get.toNamed(Routes.KARYAILMIAH, arguments: {
-                                      'year': 'Favorite',
-                                      'bred': 'root > Favorite',
+                                      'year': 'My Favorites',
+                                      'bred': 'root > My Favorites',
                                       'karya': karya
                                     });
                                   },
@@ -221,8 +221,8 @@ class FavoriteView extends GetView<FavoriteController> {
                                       '${nambel}, ${namdep} | ${date} | ${thesistype} ${type} | ${institution}'),
                                   onTap: () {
                                     Get.toNamed(Routes.KARYAILMIAH, arguments: {
-                                      'year': 'Favorite',
-                                      'bred': 'root > Favorite',
+                                      'year': 'My Favorites',
+                                      'bred': 'root > My Favorites',
                                       'karya': karya
                                     });
                                   },
