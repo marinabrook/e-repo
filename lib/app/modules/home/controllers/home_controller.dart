@@ -11,10 +11,11 @@ class HomeController extends GetxController {
   var favlist = [].obs;
 
   void firsttimefav() {
-    if(box.read('fav') == null)
-    favlist.value = [];
-    var jsonstring = jsonEncode(favlist);
-    box.write('fav', jsonstring);
+    if (box.read('fav') == null) {
+      favlist.value = [];
+      var jsonstring = jsonEncode(favlist);
+      box.write('fav', jsonstring);
+    }
   }
 
   final count = 0.obs;
