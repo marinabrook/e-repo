@@ -35,5 +35,6 @@ flutter:
     - assets/thumvid.png
     - assets/logounsoed.png
     - assets/launcher.png
+    - assets/uptbackground.png
   uses-material-design: true
 

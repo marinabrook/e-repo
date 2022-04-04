@@ -24,9 +24,34 @@ class FaqView extends GetView<FaqController> {
       drawer: ListView(
         children: [
           UserAccountsDrawerHeader(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage('assets/uptbackground.png'),
+                  fit: BoxFit.cover,
+                  colorFilter:
+                      ColorFilter.mode(Colors.black26, BlendMode.darken)),
+            ),
             currentAccountPicture: Image.asset('assets/logounsoed.png'),
-            accountName: Text('Repository Mobile'),
-            accountEmail: Text('Universitas Jenderal Soedirman'),
+            accountName: Text(
+              'Repository Mobile',
+              style: TextStyle(shadows: <Shadow>[
+                Shadow(
+                  offset: Offset(3, 2),
+                  blurRadius: 3.0,
+                  color: Color.fromARGB(255, 0, 0, 0),
+                ),
+              ]),
+            ),
+            accountEmail: Text(
+              'Universitas Jenderal Soedirman',
+              style: TextStyle(shadows: <Shadow>[
+                Shadow(
+                  offset: Offset(3, 2),
+                  blurRadius: 3.0,
+                  color: Color.fromARGB(255, 0, 0, 0),
+                ),
+              ]),
+            ),
           ),
           ListTile(
             onTap: () {
