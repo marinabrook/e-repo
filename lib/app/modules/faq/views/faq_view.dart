@@ -3,6 +3,7 @@ import 'package:flutter_linkify/flutter_linkify.dart';
 import 'package:get/get.dart';
 import 'package:repository_mobile_unsoed/app/routes/app_pages.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 import '../controllers/faq_controller.dart';
 
 class FaqView extends GetView<FaqController> {
@@ -214,8 +215,9 @@ class FaqView extends GetView<FaqController> {
             width: MediaQuery.of(context).size.width,
             child: Linkify(
               onOpen: (link) async {
-                if (await canLaunch(link.url)) {
-                  await launch(link.url);
+                if (await canLaunchUrlString(link.url)) {
+                  await launchUrlString(link.url,
+                      mode: LaunchMode.externalApplication);
                 } else {
                   throw 'Could not launch $link';
                 }

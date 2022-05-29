@@ -13,30 +13,31 @@ class PencarianController extends GetxController with StateMixin {
       change(null, status: RxStatus.empty());
     } else {
       change(null, status: RxStatus.loading());
-    var splittedtext = kata.split(" ");
-    var combinedtext;
-    for (int i = 0; i < splittedtext.length; i++) {
-      if (i == 0) {
-        combinedtext = splittedtext[i];
-      } else {
-        combinedtext = combinedtext + "+" + splittedtext[i];
-      }
-    }
-    serres.value = kata;
-    await KaryaProvider().getSearch(combinedtext).then(
-      (value) {
-        if (value.statusCode == 200) {
-          listkarya.assignAll(value.body);
-          change(null, status: RxStatus.success());
+      var splittedtext = kata.split(" ");
+      var combinedtext;
+      for (int i = 0; i < splittedtext.length; i++) {
+        if (i == 0) {
+          combinedtext = splittedtext[i];
         } else {
-          change(null,
-              status: RxStatus.error("Error!\nSilahkan Periksa Koneksi Kamu!"));
+          combinedtext = combinedtext + "+" + splittedtext[i];
         }
-      },
-    );
+      }
+      serres.value = kata;
+      await KaryaProvider().getSearch(combinedtext).then(
+        (value) {
+          if (value.statusCode == 200) {
+            listkarya.assignAll(value.body);
+            change(null, status: RxStatus.success());
+          } else {
+            change(null,
+                status:
+                    RxStatus.error("Error!\nSilahkan Periksa Koneksi Kamu!"));
+          }
+        },
+      );
     }
-    
   }
+
   final count = 0.obs;
   @override
   void onInit() {

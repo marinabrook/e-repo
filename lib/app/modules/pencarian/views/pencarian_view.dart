@@ -169,7 +169,7 @@ class PencarianView extends GetView<PencarianController> {
                       ),
                     ),
                     Container(
-                      width: MediaQuery.of(context).size.width * 0.2,
+                      width: MediaQuery.of(context).size.width * 0.25,
                       child: ElevatedButton(
                         onPressed: () {
                           // // controller.search();
@@ -223,6 +223,17 @@ class PencarianView extends GetView<PencarianController> {
                         if (index == 0) {
                           return Column(
                             children: [
+                              Center(
+                                child: Text(
+                                  'Menampilkan ${controller.listkarya.value.length} hasil',
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                  maxLines: 2,
+                                  textAlign: TextAlign.center,
+                                ),
+                              ),
                               Divider(),
                               ListTile(
                                 leading: Image.asset('assets/file.png'),

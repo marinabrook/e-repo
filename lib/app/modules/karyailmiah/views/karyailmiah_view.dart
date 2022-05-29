@@ -3,6 +3,7 @@ import 'package:flutter_linkify/flutter_linkify.dart';
 import 'package:get/get.dart';
 import 'package:repository_mobile_unsoed/app/routes/app_pages.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 import '../controllers/karyailmiah_controller.dart';
 
 class KaryailmiahView extends GetView<KaryailmiahController> {
@@ -328,9 +329,10 @@ class KaryailmiahView extends GetView<KaryailmiahController> {
                   ),
                   onTap: () async {
                     String link =
-                        "https://repository.unsoed.ac.id/${eprintid}/${listdoc[index]["pos"]}/${listdoc[index]["main"]}";
-                    if (await canLaunch(link)) {
-                      await launch(link);
+                        "https://docs.google.com/gview?embedded=false&url=https://repository.unsoed.ac.id/${eprintid}/${listdoc[index]["pos"]}/${listdoc[index]["main"]}";
+                    if (await canLaunchUrl(Uri.parse(link))) {
+                      await launchUrl(Uri.parse(link),
+                          mode: LaunchMode.externalApplication);
                     } else {
                       throw 'Could not launch $link';
                     }

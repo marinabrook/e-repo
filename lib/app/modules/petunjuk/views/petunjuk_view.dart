@@ -4,6 +4,7 @@ import 'package:flutter_linkify/flutter_linkify.dart';
 import 'package:get/get.dart';
 import 'package:repository_mobile_unsoed/app/routes/app_pages.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 import '../controllers/petunjuk_controller.dart';
 
 class PetunjukView extends GetView<PetunjukController> {
@@ -168,8 +169,9 @@ class PetunjukView extends GetView<PetunjukController> {
             width: MediaQuery.of(context).size.width,
             child: Linkify(
               onOpen: (link) async {
-                if (await canLaunch(link.url)) {
-                  await launch(link.url);
+                if (await canLaunchUrlString(link.url)) {
+                  await launchUrlString(link.url,
+                      mode: LaunchMode.externalApplication);
                 } else {
                   throw 'Could not launch $link';
                 }
@@ -199,8 +201,9 @@ class PetunjukView extends GetView<PetunjukController> {
             width: MediaQuery.of(context).size.width,
             child: Linkify(
               onOpen: (link) async {
-                if (await canLaunch(link.url)) {
-                  await launch(link.url);
+                if (await canLaunchUrlString(link.url)) {
+                  await launchUrlString(link.url,
+                      mode: LaunchMode.externalApplication);
                 } else {
                   throw 'Could not launch $link';
                 }
@@ -237,8 +240,9 @@ class PetunjukView extends GetView<PetunjukController> {
                       ..onTap = () async {
                         String link =
                             "https://drive.google.com/file/d/1VO_-mOLco23KImuZncwEhlzVfTSKtvGr/view?usp=sharing";
-                        if (await canLaunch(link)) {
-                          await launch(link);
+                        if (await canLaunchUrlString(link)) {
+                          await launchUrlString(link,
+                              mode: LaunchMode.externalApplication);
                         } else {
                           throw 'Could not launch $link';
                         }
@@ -270,8 +274,9 @@ class PetunjukView extends GetView<PetunjukController> {
               child: InkWell(
                   onTap: () async {
                     String link = "https://youtu.be/KqJUhIqoXpM";
-                    if (await canLaunch(link)) {
-                      await launch(link);
+                    if (await canLaunchUrlString(link)) {
+                      await launchUrlString(link,
+                          mode: LaunchMode.externalApplication);
                     } else {
                       throw 'Could not launch $link';
                     }
@@ -301,8 +306,9 @@ class PetunjukView extends GetView<PetunjukController> {
             width: MediaQuery.of(context).size.width,
             child: Linkify(
               onOpen: (link) async {
-                if (await canLaunch(link.url)) {
-                  await launch(link.url);
+                if (await canLaunchUrlString(link.url)) {
+                  await launchUrlString(link.url,
+                      mode: LaunchMode.externalApplication);
                 } else {
                   throw 'Could not launch $link';
                 }
@@ -349,8 +355,9 @@ class PetunjukView extends GetView<PetunjukController> {
             width: MediaQuery.of(context).size.width,
             child: Linkify(
               onOpen: (link) async {
-                if (await canLaunch(link.url)) {
-                  await launch(link.url);
+                if (await canLaunchUrlString(link.url)) {
+                  await launchUrlString(link.url,
+                      mode: LaunchMode.externalApplication);
                 } else {
                   throw 'Could not launch $link';
                 }
@@ -369,8 +376,9 @@ class PetunjukView extends GetView<PetunjukController> {
             width: MediaQuery.of(context).size.width,
             child: Linkify(
               onOpen: (link) async {
-                if (await canLaunch(link.url)) {
-                  await launch(link.url);
+                if (await canLaunchUrlString(link.url)) {
+                  await launchUrlString(link.url,
+                      mode: LaunchMode.externalApplication);
                 } else {
                   throw 'Could not launch $link';
                 }
@@ -428,8 +436,9 @@ class PetunjukView extends GetView<PetunjukController> {
             width: MediaQuery.of(context).size.width,
             child: Linkify(
               onOpen: (link) async {
-                if (await canLaunch(link.url)) {
-                  await launch(link.url);
+                if (await canLaunchUrlString(link.url)) {
+                  await launchUrlString(link.url,
+                      mode: LaunchMode.externalApplication);
                 } else {
                   throw 'Could not launch $link';
                 }
@@ -465,8 +474,9 @@ class PetunjukView extends GetView<PetunjukController> {
                     recognizer: TapGestureRecognizer()
                       ..onTap = () async {
                         String link = "https://forms.gle/jWapogTmdCtSxESs5";
-                        if (await canLaunch(link)) {
-                          await launch(link);
+                        if (await canLaunchUrlString(link)) {
+                          await launchUrlString(link,
+                              mode: LaunchMode.externalApplication);
                         } else {
                           throw 'Could not launch $link';
                         }
@@ -528,8 +538,9 @@ class PetunjukView extends GetView<PetunjukController> {
                     recognizer: TapGestureRecognizer()
                       ..onTap = () async {
                         String link = "";
-                        if (await canLaunch(link)) {
-                          await launch(link);
+                        if (await canLaunchUrlString(link)) {
+                          await launchUrlString(link,
+                              mode: LaunchMode.externalApplication);
                         } else {
                           throw 'Could not launch $link';
                         }
@@ -562,8 +573,9 @@ class PetunjukView extends GetView<PetunjukController> {
                     recognizer: TapGestureRecognizer()
                       ..onTap = () async {
                         String link = "";
-                        if (await canLaunch(link)) {
-                          await launch(link);
+                        if (await canLaunchUrlString(link)) {
+                          await launchUrlString(link,
+                              mode: LaunchMode.externalApplication);
                         } else {
                           throw 'Could not launch $link';
                         }

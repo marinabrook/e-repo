@@ -182,7 +182,7 @@ class HomeView extends GetView<HomeController> {
                       ),
                     ),
                     Container(
-                      width: MediaQuery.of(context).size.width * 0.2,
+                      width: MediaQuery.of(context).size.width * 0.25,
                       child: ElevatedButton(
                         onPressed: () {
                           controller.search();
@@ -206,18 +206,8 @@ class HomeView extends GetView<HomeController> {
                 children: [
                   InkWell(
                     onTap: () {
-                      Get.snackbar(
-                        "Fitur ini belum tersedia.",
-                        "Silahkan gunakan versi web ^_^",
-                        snackPosition: SnackPosition.TOP,
-                        margin: EdgeInsets.only(
-                          top: MediaQuery.of(context).size.height * 0.07,
-                          left: MediaQuery.of(context).size.width * 0.03,
-                          right: MediaQuery.of(context).size.width * 0.03,
-                        ),
-                        duration: Duration(seconds: 1, milliseconds: 500),
-                        animationDuration: Duration(milliseconds: 500),
-                      );
+                      Get.toNamed(Routes.FOLDER,
+                          arguments: {'bred': "By Years", 'allyear': allyears});
                     },
                     child: Card(
                       elevation: 4,
@@ -232,7 +222,7 @@ class HomeView extends GetView<HomeController> {
                             ),
                             Container(
                               child: Text(
-                                "Latest Addition",
+                                "By Years",
                                 textAlign: TextAlign.center,
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 3,
@@ -334,8 +324,18 @@ class HomeView extends GetView<HomeController> {
                   ),
                   InkWell(
                     onTap: () {
-                      Get.toNamed(Routes.FOLDER,
-                          arguments: {'bred': "By Years", 'allyear': allyears});
+                      Get.snackbar(
+                        "Fitur ini belum tersedia.",
+                        "Silahkan gunakan versi web ^_^",
+                        snackPosition: SnackPosition.TOP,
+                        margin: EdgeInsets.only(
+                          top: MediaQuery.of(context).size.height * 0.07,
+                          left: MediaQuery.of(context).size.width * 0.03,
+                          right: MediaQuery.of(context).size.width * 0.03,
+                        ),
+                        duration: Duration(seconds: 1, milliseconds: 500),
+                        animationDuration: Duration(milliseconds: 500),
+                      );
                     },
                     child: Card(
                       elevation: 4,
@@ -350,7 +350,7 @@ class HomeView extends GetView<HomeController> {
                             ),
                             Container(
                               child: Text(
-                                "By Years",
+                                "Latest Addition",
                                 textAlign: TextAlign.center,
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 3,

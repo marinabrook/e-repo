@@ -1,5 +1,5 @@
 name: repository_mobile_unsoed
-version: 1.0.0+1
+version: 1.0.3+3
 publish_to: none
 description: A new Flutter project.
 environment: 
@@ -9,7 +9,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   get: 4.6.1
   flutter_linkify: 5.0.2
-  url_launcher: 6.0.18
+  url_launcher: 6.1.2
   flutter_native_splash: 2.1.0
   draggable_scrollbar: 0.1.0
   get_storage: 2.0.3
@@ -22,10 +22,10 @@ dev_dependencies:
   flutter_test: 
     sdk: flutter
 
-flutter_icons:
+flutter_icons: 
+  image_path: assets/launcher.png
   android: true
   ios: true
-  image_path: "assets/launcher.png"
 
 flutter: 
   assets: 
