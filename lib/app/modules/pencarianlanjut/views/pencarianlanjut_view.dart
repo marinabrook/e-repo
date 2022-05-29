@@ -1,12 +1,12 @@
-// ignore_for_file: invalid_use_of_protected_member
-
 import 'package:draggable_scrollbar/draggable_scrollbar.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import '../../../routes/app_pages.dart';
-import '../controllers/pencarian_controller.dart';
 
-class PencarianView extends GetView<PencarianController> {
+import 'package:get/get.dart';
+import 'package:repository_mobile_unsoed/app/routes/app_pages.dart';
+
+import '../controllers/pencarianlanjut_controller.dart';
+
+class PencarianlanjutView extends GetView<PencarianlanjutController> {
   final ScrollController _scrollController = ScrollController();
 
   @override
@@ -15,7 +15,7 @@ class PencarianView extends GetView<PencarianController> {
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Browse'),
+          title: Text('Advanced Search'),
           centerTitle: true,
           actions: [
             IconButton(
@@ -121,7 +121,7 @@ class PencarianView extends GetView<PencarianController> {
                   margin: EdgeInsets.only(left: 4),
                   child: Center(
                     child: Text(
-                      'Search results for ${controller.serres}',
+                      '${controller.serres}',
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
@@ -136,71 +136,113 @@ class PencarianView extends GetView<PencarianController> {
             ),
             Container(
               padding: EdgeInsets.symmetric(horizontal: 24),
-              child: Form(
-                key: controller.searchFormKey2,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      width: MediaQuery.of(context).size.width * 0.6,
-                      child: TextFormField(
-                        controller: controller.searchController,
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Kamu harus mengisi setidaknya satu kata';
-                          }
-                          return null;
-                        },
-                        decoration: InputDecoration(
-                            labelText: 'Search',
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(5),
-                              borderSide: BorderSide(
-                                color: Colors.blue,
-                                width: 1.0,
-                              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Container(
+                    width: MediaQuery.of(context).size.width * 0.87,
+                    child: TextFormField(
+                      controller: controller.searchControllertitle,
+                      decoration: InputDecoration(
+                          labelText: 'Title',
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(5),
+                            borderSide: BorderSide(
+                              color: Colors.blue,
+                              width: 1.0,
                             ),
-                            focusedErrorBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(5),
-                              borderSide: BorderSide(
-                                color: Colors.red,
-                                width: 1.0,
-                              ),
+                          ),
+                          focusedErrorBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(5),
+                            borderSide: BorderSide(
+                              color: Colors.red,
+                              width: 1.0,
                             ),
-                            contentPadding:
-                                EdgeInsets.symmetric(horizontal: 12)),
-                      ),
+                          ),
+                          contentPadding: EdgeInsets.symmetric(horizontal: 12)),
                     ),
-                    Container(
-                      width: MediaQuery.of(context).size.width * 0.25,
-                      child: ElevatedButton(
-                        onPressed: () {
-                          // // controller.search();
-                          controller
-                              .search(controller.searchController.value.text);
-                          FocusScope.of(context).unfocus();
-                        },
-                        child: Text("SEARCH"),
-                      ),
+                  ),
+                  SizedBox(
+                    height: 12,
+                  ),
+                  Container(
+                    width: MediaQuery.of(context).size.width * 0.87,
+                    child: TextFormField(
+                      controller: controller.searchControllercreator,
+                      decoration: InputDecoration(
+                          labelText: 'Creator',
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(5),
+                            borderSide: BorderSide(
+                              color: Colors.blue,
+                              width: 1.0,
+                            ),
+                          ),
+                          focusedErrorBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(5),
+                            borderSide: BorderSide(
+                              color: Colors.red,
+                              width: 1.0,
+                            ),
+                          ),
+                          contentPadding: EdgeInsets.symmetric(horizontal: 12)),
                     ),
-                  ],
-                ),
+                  ),
+                  SizedBox(
+                    height: 12,
+                  ),
+                  Container(
+                    width: MediaQuery.of(context).size.width * 0.87,
+                    child: TextFormField(
+                      controller: controller.searchControllerabstract,
+                      decoration: InputDecoration(
+                          labelText: 'Abstract',
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(5),
+                            borderSide: BorderSide(
+                              color: Colors.blue,
+                              width: 1.0,
+                            ),
+                          ),
+                          focusedErrorBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(5),
+                            borderSide: BorderSide(
+                              color: Colors.red,
+                              width: 1.0,
+                            ),
+                          ),
+                          contentPadding: EdgeInsets.symmetric(horizontal: 12)),
+                    ),
+                  ),
+                  Container(
+                    width: MediaQuery.of(context).size.width * 0.25,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        // // controller.search();
+
+                        controller.search(
+                            controller.searchControllertitle.value.text,
+                            controller.searchControllercreator.value.text,
+                            controller.searchControllerabstract.value.text);
+                        FocusScope.of(context).unfocus();
+                      },
+                      child: Text("SEARCH"),
+                    ),
+                  ),
+                ],
               ),
-            ),
-            SizedBox(
-              height: 4,
             ),
             Center(
               child: GestureDetector(
                 onTap: () {
-                  Get.toNamed(Routes.PENCARIANLANJUT);
+                  Get.back();
                 },
                 child: Container(
-                  padding: EdgeInsets.only(top: 12, bottom: 16),
+                  padding: EdgeInsets.only(top: 8, bottom: 16),
                   width: MediaQuery.of(context).size.width * 0.4,
                   child: Text(
-                    'Advanced Search',
+                    'Simple Search',
                     style: TextStyle(
                         fontSize: 16,
                         color: Colors.blue,
@@ -212,7 +254,7 @@ class PencarianView extends GetView<PencarianController> {
               ),
             ),
             Container(
-              height: MediaQuery.of(context).size.height * 0.73,
+              height: MediaQuery.of(context).size.height * 0.54,
               child: controller.obx(
                 (state) {
                   return DraggableScrollbar.rrect(
@@ -302,6 +344,11 @@ class PencarianView extends GetView<PencarianController> {
                 onEmpty: Center(
                   child: Text(""),
                 ),
+                onError: (error) => Center(
+                    child: Text(
+                  error!,
+                  style: TextStyle(color: Colors.red),
+                )),
               ),
             ),
           ],

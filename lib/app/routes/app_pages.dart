@@ -16,6 +16,8 @@ import 'package:repository_mobile_unsoed/app/modules/listkaryailmiah/bindings/li
 import 'package:repository_mobile_unsoed/app/modules/listkaryailmiah/views/listkaryailmiah_view.dart';
 import 'package:repository_mobile_unsoed/app/modules/pencarian/bindings/pencarian_binding.dart';
 import 'package:repository_mobile_unsoed/app/modules/pencarian/views/pencarian_view.dart';
+import 'package:repository_mobile_unsoed/app/modules/pencarianlanjut/bindings/pencarianlanjut_binding.dart';
+import 'package:repository_mobile_unsoed/app/modules/pencarianlanjut/views/pencarianlanjut_view.dart';
 import 'package:repository_mobile_unsoed/app/modules/petunjuk/bindings/petunjuk_binding.dart';
 import 'package:repository_mobile_unsoed/app/modules/petunjuk/views/petunjuk_view.dart';
 
@@ -71,6 +73,11 @@ class AppPages {
       name: _Paths.FAVORITE,
       page: () => FavoriteView(),
       binding: FavoriteBinding(),
+    ),
+    GetPage(
+      name: _Paths.PENCARIANLANJUT,
+      page: () => PencarianlanjutView(),
+      binding: PencarianlanjutBinding(),
     ),
   ];
 }

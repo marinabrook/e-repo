@@ -13,6 +13,7 @@ abstract class Routes {
   static const FOLDER = _Paths.FOLDER;
   static const PENCARIAN = _Paths.PENCARIAN;
   static const FAVORITE = _Paths.FAVORITE;
+  static const PENCARIANLANJUT = _Paths.PENCARIANLANJUT;
 }
 
 abstract class _Paths {
@@ -25,4 +26,5 @@ abstract class _Paths {
   static const FOLDER = '/folder';
   static const PENCARIAN = '/pencarian';
   static const FAVORITE = '/favorite';
+  static const PENCARIANLANJUT = '/pencarianlanjut';
 }
